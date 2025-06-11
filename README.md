@@ -1,2 +1,2 @@
 # Skillink---Jedi
-Skillink is a project oriented to the development of a platfform where the people can shares projects, opinions, general content...
+Skillink is a platform designed to help people share their projects, ideas, and content with a broader community. It encourages collaboration, feedback, and innovation.
