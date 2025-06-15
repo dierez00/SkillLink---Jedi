@@ -1,4 +1,4 @@
-package com.skilllink.backend.entity;
+package com.skilllink.backend.entity.evento;
 
 import java.time.LocalDateTime;
 
