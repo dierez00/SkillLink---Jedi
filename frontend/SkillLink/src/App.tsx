@@ -1,19 +1,12 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/pages/Home";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <main className="container mx-auto p-4">
-        
-        <h1 className="text-2xl font-bold mb-4">Bienvenidos</h1>
-        <p>Equipo Jedi</p>
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route index element={<Home />} />
+    </Routes>
   );
 }
 
-export default App
+export default App;
