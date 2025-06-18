@@ -1,7 +1,9 @@
-package com.skilllink.backend.security;
+package com.skilllink.backend.controller;
 
 import com.skilllink.backend.entity.Usuario.DatosAutentificacionUsuario;
 import com.skilllink.backend.entity.Usuario.Usuario;
+import com.skilllink.backend.security.DatosJWTToken;
+import com.skilllink.backend.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

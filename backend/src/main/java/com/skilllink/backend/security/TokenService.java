@@ -7,8 +7,7 @@ import com.skilllink.backend.entity.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 
 public class TokenService {
 
@@ -30,7 +29,7 @@ public class TokenService {
     }
 
     public Instant generarFechaDeVencimiento(){
-        return LocalDateTime.now().plusHours(3).toInstant(ZoneOffset.of("-5:00"));
+        return Instant.now().plus(3, ChronoUnit.HOURS);
     }
 
     public String getSubject (String tokenJWT){

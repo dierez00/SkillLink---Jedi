@@ -1,4 +1,4 @@
-package com.skilllink.backend.security;
+package com.skilllink.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
