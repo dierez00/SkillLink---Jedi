@@ -10,8 +10,8 @@ public record DatosListadoRegistroEvento(
 
     public DatosListadoRegistroEvento(RegistroEvento registroEvento) {
         this(registroEvento.getIdRegistro(),
-                registroEvento.getIdUsuario(),
-                registroEvento.getIdEvento(),
+                registroEvento.getUsuario().getIdUsuario(),
+                registroEvento.getEvento().getIdEvento(),
                 registroEvento.getFechaRegistro());
     }
 

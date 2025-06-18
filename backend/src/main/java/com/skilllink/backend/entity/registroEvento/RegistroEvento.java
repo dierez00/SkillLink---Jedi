@@ -1,5 +1,7 @@
 package com.skilllink.backend.entity.registroEvento;
 
+import com.skilllink.backend.entity.evento.Evento;
+import com.skilllink.backend.entity.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -19,16 +21,21 @@ public class RegistroEvento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRegistro;
-    @Column(name = "id_usuario")
-    private Long idUsuario;
-    @Column(name = "id_evento")
-    private Long idEvento;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
+    @ManyToOne
+    @JoinColumn(name = "id_evento")
+    private Evento evento;
+
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
 
-    public RegistroEvento(DatosRegistroRegistroEvento datosRegistroEvento) {
-        this.idUsuario = datosRegistroEvento.idUsuario();
-        this.idEvento = datosRegistroEvento.idEvento();
+    public RegistroEvento(DatosRegistroRegistroEvento datosRegistroRegistroEvento, Usuario usuario, Evento evento) {
+        this.usuario = usuario;
+        this.evento = evento;
         this.fechaRegistro = LocalDateTime.now();
     }
 }
