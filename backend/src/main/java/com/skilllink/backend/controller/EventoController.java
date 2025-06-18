@@ -1,15 +1,18 @@
 package com.skilllink.backend.controller;
 
-import com.skilllink.backend.entity.evento.DatosListadoEvento;
-import com.skilllink.backend.entity.evento.EventoRepository;
+import com.skilllink.backend.entity.evento.*;
+import com.skilllink.backend.entity.registroEvento.DatosRegistroRegistroEvento;
+import com.skilllink.backend.entity.registroEvento.DatosRespuestaRegistroEvento;
+import com.skilllink.backend.entity.registroEvento.RegistroEvento;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/evento")
@@ -21,6 +24,14 @@ public class EventoController {
     @GetMapping("/hello")
     public String mensaje() {
         return "Hola mundo!";
+    }
+
+    @PostMapping
+    public ResponseEntity<DatosRespuestaEvento> registrarEvento(@RequestBody @Valid DatosRegistroEvento datosRegistroEvento, UriComponentsBuilder uriComponentsBuilder) {
+        Evento evento = eventoRepository.save(new Evento(datosRegistroEvento));
+        DatosRespuestaEvento datosRespuestaEvento = new DatosRespuestaEvento(evento.getIdEvento(), evento.getTitulo(), evento.getDescripcion(), evento.getUbicacion(), evento.getFechaEvento(), evento.getOrganizador());
+        URI url = uriComponentsBuilder.path("evento/{id}").buildAndExpand(evento.getIdEvento()).toUri();
+        return ResponseEntity.created(url).body(datosRespuestaEvento);
     }
 
     @GetMapping
