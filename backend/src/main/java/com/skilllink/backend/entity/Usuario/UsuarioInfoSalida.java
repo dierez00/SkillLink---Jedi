@@ -1,4 +1,4 @@
-package com.skilllink.backend.dto;
+package com.skilllink.backend.entity.Usuario;
 
 import java.time.LocalDateTime;
 

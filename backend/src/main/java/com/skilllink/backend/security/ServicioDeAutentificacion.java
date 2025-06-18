@@ -1,6 +1,6 @@
-package com.skilllink.backend.services;
+package com.skilllink.backend.security;
 
-import com.skilllink.backend.repositories.UsuarioRepositorio;
+import com.skilllink.backend.entity.Usuario.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

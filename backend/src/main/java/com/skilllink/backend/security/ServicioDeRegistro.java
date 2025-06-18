@@ -1,8 +1,8 @@
-package com.skilllink.backend.services;
+package com.skilllink.backend.security;
 
-import com.skilllink.backend.dto.UsuarioInfRegistro;
-import com.skilllink.backend.entity.Usuario;
-import com.skilllink.backend.repositories.UsuarioRepositorio;
+import com.skilllink.backend.entity.Usuario.UsuarioInfRegistro;
+import com.skilllink.backend.entity.Usuario.Usuario;
+import com.skilllink.backend.entity.Usuario.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

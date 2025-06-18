@@ -1,6 +1,4 @@
-package com.skilllink.backend.dto;
-
-import org.springframework.cglib.core.Local;
+package com.skilllink.backend.entity.Usuario;
 
 import java.time.LocalDateTime;
 

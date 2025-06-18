@@ -1,11 +1,9 @@
-package com.skilllink.backend.controller;
+package com.skilllink.backend.security;
 
-import com.skilllink.backend.dto.UsuarioInfRegistro;
-import com.skilllink.backend.dto.UsuarioInfoSalida;
-import com.skilllink.backend.entity.Usuario;
-import com.skilllink.backend.repositories.UsuarioRepositorio;
-import com.skilllink.backend.services.ServicioDeAutentificacion;
-import com.skilllink.backend.services.ServicioDeRegistro;
+import com.skilllink.backend.entity.Usuario.Usuario;
+import com.skilllink.backend.entity.Usuario.UsuarioInfRegistro;
+import com.skilllink.backend.entity.Usuario.UsuarioInfoSalida;
+import com.skilllink.backend.entity.Usuario.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,6 +1,5 @@
-package com.skilllink.backend.entity;
+package com.skilllink.backend.entity.Usuario;
 
-import com.skilllink.backend.dto.UsuarioInfRegistro;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;

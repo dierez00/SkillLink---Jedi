@@ -1,6 +1,5 @@
-package com.skilllink.backend.repositories;
+package com.skilllink.backend.entity.Usuario;
 
-import com.skilllink.backend.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

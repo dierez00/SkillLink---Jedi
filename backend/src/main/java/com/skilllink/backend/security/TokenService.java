@@ -1,9 +1,9 @@
-package com.skilllink.backend.services;
+package com.skilllink.backend.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
-import com.skilllink.backend.entity.Usuario;
+import com.skilllink.backend.entity.Usuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.Instant;
