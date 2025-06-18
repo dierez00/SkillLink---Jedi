@@ -1,6 +1,6 @@
 import { cn } from "clsx-for-tailwind";
-import MainWidth from "../layout/MainWidth";
 import Button from "./Button";
+import MainWidth from "./MainWidth";
 
 const Banner = () => {
   return (
