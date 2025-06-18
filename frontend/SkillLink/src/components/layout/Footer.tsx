@@ -1,5 +1,5 @@
 import { cn } from "clsx-for-tailwind";
-import MainWidth from "./MainWidth";
+import MainWidth from "../common/MainWidth";
 
 const Footer = () => {
   return (
