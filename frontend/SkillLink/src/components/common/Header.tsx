@@ -1,6 +1,6 @@
 import { cn } from "clsx-for-tailwind";
-import Button from "../common/Button";
-import MainWidth from "../common/MainWidth";
+import Button from "../ui/Button";
+import MainWidth from "../ui/MainWidth";
 
 const Header = () => {
   return (
