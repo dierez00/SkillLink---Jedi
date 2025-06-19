@@ -1,8 +1,8 @@
 import { cn } from "clsx-for-tailwind";
 import education from "../../assets/images/Educación.png";
-import Banner from "../common/Banner";
-import MainWidth from "../common/MainWidth";
-import SimpleCard from "../common/SimpleCard";
+import Banner from "../ui/Banner";
+import MainWidth from "../ui/MainWidth";
+import SimpleCard from "../ui/SimpleCard";
 
 const Main = () => {
   return (
