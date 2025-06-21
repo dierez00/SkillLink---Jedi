@@ -1,6 +1,7 @@
-package com.skilllink.backend.security;
+package com.skilllink.backend.config;
 
-import com.skilllink.backend.entity.Usuario.UsuarioRepositorio;
+import com.skilllink.backend.entity.usuario.UsuarioRepositorio;
+import com.skilllink.backend.security.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -9,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+@Component
 public class SecurityFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -27,7 +30,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         System.out.println("Filtrando solicitud: " + request.getRequestURI());
         String authHeader = request.getHeader("Authorization");
         if(authHeader != null){
-            String token = authHeader.replace("Bearer", "");
+            String token = authHeader.replace("Bearer", "").trim();
             String subject = tokenService.getSubject(token);
 
             if (subject != null){

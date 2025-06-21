@@ -2,13 +2,16 @@ package com.skilllink.backend.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTCreationException;
-import com.skilllink.backend.entity.Usuario.Usuario;
+import com.skilllink.backend.entity.usuario.Usuario;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+import com.auth0.jwt.exceptions.JWTCreationException;
+
+@Service
 public class TokenService {
 
     @Value("${api.security.secret}")
@@ -23,27 +26,30 @@ public class TokenService {
                     .withClaim("id", usuario.getIdUsuario())
                     .withExpiresAt(generarFechaDeVencimiento())
                     .sign(algorithm);
-        } catch (JWTCreationException e){
+        } catch (JWTCreationException exception){
             throw new RuntimeException();
         }
-    }
-
-    public Instant generarFechaDeVencimiento(){
-        return Instant.now().plus(3, ChronoUnit.HOURS);
     }
 
     public String getSubject (String tokenJWT){
-        try{
+
+        try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
             return JWT.require(algorithm)
-                    .withSubject("SkillLink")
+                    .withIssuer("SkillLink")
                     .build()
                     .verify(tokenJWT)
                     .getSubject();
-        } catch (JWTCreationException e){
+        } catch (JWTCreationException exception){
             throw new RuntimeException();
         }
 
     }
 
+    private Instant generarFechaDeVencimiento(){
+        return Instant.now().plus(3, ChronoUnit.HOURS);
+    }
+
+
 }
+

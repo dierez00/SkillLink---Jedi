@@ -1,0 +1,38 @@
+package com.skilllink.backend.entity.perfil;
+
+import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.perfilHabilidad.PerfilHabilidad;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@Setter
+@Table (name = "perfil")
+@Entity (name = "Perfil")
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode (of = "idPerfil")
+public class Perfil {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_perfil")
+    private Long idPerfil;
+    @Column(name = "bio")
+    private String descripcion;
+    private String experiencia;
+    private String ubicacion;
+    @Column (name = "redes_sociales")
+    private String redesSociales;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
+    @OneToMany(mappedBy = "perfil",cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<PerfilHabilidad> perfilHabilidad = new ArrayList<>();
+
+}

@@ -1,9 +1,9 @@
 package com.skilllink.backend.controller;
 
-import com.skilllink.backend.entity.Usuario.Usuario;
-import com.skilllink.backend.entity.Usuario.UsuarioInfRegistro;
-import com.skilllink.backend.entity.Usuario.UsuarioInfoSalida;
-import com.skilllink.backend.entity.Usuario.UsuarioRepositorio;
+import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.usuario.UsuarioInfRegistro;
+import com.skilllink.backend.entity.usuario.UsuarioInfoSalida;
+import com.skilllink.backend.entity.usuario.UsuarioRepositorio;
 import com.skilllink.backend.security.ServicioDeRegistro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +32,7 @@ public class RegistroController {
         Usuario usuario = servicioDeRegistro.registro(usuarioInfRegistro);
 
         //Obtiene la información del request para regresar solo los datos relevantes
-        UsuarioInfoSalida  usuarioInfoSalida = new UsuarioInfoSalida(usuarioInfRegistro.idUsuario(), usuarioInfRegistro.nombre(), usuarioInfRegistro.email(), usuarioInfRegistro.fechaDeRegistro());
+        UsuarioInfoSalida  usuarioInfoSalida = new UsuarioInfoSalida(usuario.getIdUsuario(), usuarioInfRegistro.nombre(), usuarioInfRegistro.email(), usuario.getFechaRegistro());
 
         URI url = uriComponentsBuilder.path("/user/{idUsuario}").buildAndExpand(usuario.getIdUsuario()).toUri();
         return ResponseEntity.created(url).body(usuarioInfoSalida);
