@@ -9,4 +9,13 @@ public record DatosRespuestaEvento(
         String ubicacion,
         LocalDateTime fechaEvento,
         String organizador) {
+
+    public DatosRespuestaEvento(Evento evento) {
+        this(evento.getIdEvento(),
+                evento.getTitulo(),
+                evento.getDescripcion(),
+                evento.getUbicacion(),
+                evento.getFechaEvento(),
+                evento.getOrganizador());
+    }
 }

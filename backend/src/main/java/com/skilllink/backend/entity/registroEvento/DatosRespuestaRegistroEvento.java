@@ -7,4 +7,11 @@ public record DatosRespuestaRegistroEvento(
         Long idUsuario,
         Long idEvento,
         LocalDateTime fechaRegistro) {
+
+    public DatosRespuestaRegistroEvento(RegistroEvento registroEvento) {
+        this(registroEvento.getIdRegistro(),
+                registroEvento.getUsuario().getIdUsuario(),
+                registroEvento.getEvento().getIdEvento(),
+                registroEvento.getFechaRegistro());
+    }
 }
