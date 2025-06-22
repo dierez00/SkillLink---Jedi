@@ -1,5 +1,6 @@
-package com.skilllink.backend.entity.perfil;
+package com.skilllink.backend.repository;
 
+import com.skilllink.backend.entity.perfil.Perfil;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

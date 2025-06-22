@@ -1,10 +1,13 @@
-package com.skilllink.backend.entity.perfil;
+package com.skilllink.backend.service;
 
-import com.skilllink.backend.entity.perfilHabilidad.HabilidadesSeleccionadas;
+import com.skilllink.backend.dto.perfil.DatosPerfil;
+import com.skilllink.backend.entity.perfil.Perfil;
+import com.skilllink.backend.repository.PerfilRepositorio;
+import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
 import com.skilllink.backend.entity.perfilHabilidad.PerfilHabilidad;
 import com.skilllink.backend.entity.usuario.Usuario;
 import com.skilllink.backend.entity.habilidad.Habilidad;
-import com.skilllink.backend.entity.habilidad.HabilidadRepositorio;
+import com.skilllink.backend.repository.HabilidadRepositorio;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

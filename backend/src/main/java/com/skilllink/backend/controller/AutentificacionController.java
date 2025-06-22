@@ -1,6 +1,6 @@
 package com.skilllink.backend.controller;
 
-import com.skilllink.backend.entity.usuario.DatosAutentificacionUsuario;
+import com.skilllink.backend.dto.usuario.DatosAutentificacionUsuario;
 import com.skilllink.backend.entity.usuario.Usuario;
 import com.skilllink.backend.security.DatosJWTToken;
 import com.skilllink.backend.security.TokenService;

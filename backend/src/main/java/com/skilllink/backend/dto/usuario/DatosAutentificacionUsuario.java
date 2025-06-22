@@ -1,4 +1,4 @@
-package com.skilllink.backend.entity.usuario;
+package com.skilllink.backend.dto.usuario;
 
 public record DatosAutentificacionUsuario (String email, String contrasena) {
 }

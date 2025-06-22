@@ -1,8 +1,6 @@
-package com.skilllink.backend.entity.usuario;
+package com.skilllink.backend.dto.usuario;
 
 import jakarta.validation.constraints.NotBlank;
-
-import java.time.LocalDateTime;
 
 public record UsuarioInfRegistro(
 

@@ -1,6 +1,6 @@
 package com.skilllink.backend.config;
 
-import com.skilllink.backend.entity.usuario.UsuarioRepositorio;
+import com.skilllink.backend.repository.UsuarioRepositorio;
 import com.skilllink.backend.security.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

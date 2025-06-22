@@ -2,8 +2,8 @@ package com.skilllink.backend.controller;
 
 
 import com.skilllink.backend.entity.usuario.Usuario;
-import com.skilllink.backend.entity.usuario.UsuarioInfoSalida;
-import com.skilllink.backend.entity.usuario.UsuarioRepositorio;
+import com.skilllink.backend.dto.usuario.UsuarioInfoSalida;
+import com.skilllink.backend.repository.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

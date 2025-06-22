@@ -1,7 +1,6 @@
-package com.skilllink.backend.entity.perfil;
+package com.skilllink.backend.dto.perfil;
 
-import com.skilllink.backend.entity.perfilHabilidad.HabilidadesSeleccionadas;
-import jakarta.persistence.Id;
+import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;

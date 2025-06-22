@@ -1,4 +1,4 @@
-package com.skilllink.backend.entity.habilidad;
+package com.skilllink.backend.dto.habilidad;
 
 public record HabilidadDTO(Long id, String nombre, String categoria) {
 }
