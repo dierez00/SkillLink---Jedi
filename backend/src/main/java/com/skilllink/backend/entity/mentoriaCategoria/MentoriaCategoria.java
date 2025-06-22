@@ -1,7 +1,7 @@
 package com.skilllink.backend.entity.mentoriaCategoria;
 
-import com.skilllink.backend.entity.categoria.Categoria;
-import com.skilllink.backend.entity.mentoria.Mentoria;
+import com.skilllink.backend.entity.Categoria;
+import com.skilllink.backend.entity.Mentoria;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

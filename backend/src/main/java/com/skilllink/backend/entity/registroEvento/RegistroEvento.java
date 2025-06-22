@@ -1,6 +1,6 @@
 package com.skilllink.backend.entity.registroEvento;
 
-import com.skilllink.backend.entity.evento.Evento;
+import com.skilllink.backend.entity.Evento;
 import com.skilllink.backend.entity.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

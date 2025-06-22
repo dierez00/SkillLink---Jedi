@@ -1,16 +1,19 @@
-package com.skilllink.backend.entity.mentoria;
+package com.skilllink.backend.entity;
 
+import com.skilllink.backend.dto.mentoria.DatosEntradaMentoria;
 import com.skilllink.backend.entity.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Mentoria")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Mentoria {
@@ -31,11 +34,11 @@ public class Mentoria {
 
     private String estado;
 
-    public Mentoria(DatosRegistroMentoria datosRegistroMentoria, Usuario usuario) {
+    public Mentoria(DatosEntradaMentoria datosEntradaMentoria, Usuario usuario) {
         this.usuario = usuario;
-        this.titulo = datosRegistroMentoria.titulo();
-        this.descripcion = datosRegistroMentoria.descripcion();
-        this.fechaPublicacion = datosRegistroMentoria.fechaPublicacion();
-        this.estado = datosRegistroMentoria.estado();
+        this.titulo = datosEntradaMentoria.titulo();
+        this.descripcion = datosEntradaMentoria.descripcion();
+        this.fechaPublicacion = datosEntradaMentoria.fechaPublicacion();
+        this.estado = datosEntradaMentoria.estado();
     }
 }

@@ -1,8 +1,8 @@
-package com.skilllink.backend.entity.categoria;
+package com.skilllink.backend.dto.categoria;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record DatosRegistroCategoria(
+public record DatosEntradaCategoria(
         @NotBlank
         String nombre,
         @NotBlank

@@ -1,11 +1,14 @@
 package com.skilllink.backend.controller;
 
-import com.skilllink.backend.entity.mentoria.DatosRegistroMentoria;
-import com.skilllink.backend.entity.mentoria.DatosRespuestaMentoria;
-import com.skilllink.backend.entity.mentoria.Mentoria;
-import com.skilllink.backend.entity.mentoria.MentoriaRepository;
+import com.skilllink.backend.dto.mentoria.DatosEntradaMentoria;
+import com.skilllink.backend.dto.mentoria.DatosSalidaMentoria;
+import com.skilllink.backend.entity.Mentoria;
+import com.skilllink.backend.entity.usuario.UsuarioRepository;
+import com.skilllink.backend.repository.MentoriaRepository;
 import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.service.MentoriaService;
 import com.skilllink.backend.service.VerificarExistenciaService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,22 +24,66 @@ import java.net.URI;
 public class MentoriaController {
 
     @Autowired
-    MentoriaRepository mentoriaRepository;
+    private MentoriaRepository mentoriaRepository;
 
     @Autowired
-    VerificarExistenciaService service;
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private VerificarExistenciaService service1;
+
+    @Autowired
+    private MentoriaService service;
 
     @PostMapping
-    public ResponseEntity<DatosRespuestaMentoria> registrarMentoria(@RequestBody @Valid DatosRegistroMentoria datosRegistroMentoria, UriComponentsBuilder uriComponentsBuilder) {
-        Usuario usuario = service.hayUsuario(datosRegistroMentoria.idUsuario());
-        Mentoria mentoria = mentoriaRepository.save(new Mentoria(datosRegistroMentoria, usuario));
-        DatosRespuestaMentoria datosRespuestaMentoria = new DatosRespuestaMentoria(mentoria);
-        URI url = uriComponentsBuilder.path("mentoria/{id}").buildAndExpand(mentoria.getIdMentoria()).toUri();
-        return ResponseEntity.created(url).body(datosRespuestaMentoria);
+    public ResponseEntity<DatosSalidaMentoria> registrarMentoria(@RequestBody @Valid DatosEntradaMentoria datosEntradaMentoria, UriComponentsBuilder uriComponentsBuilder) {
+        if (usuarioRepository.existsById(datosEntradaMentoria.idUsuario())) {
+            Usuario usuario = usuarioRepository.getReferenceById(datosEntradaMentoria.idUsuario());
+            Mentoria mentoria = mentoriaRepository.save(new Mentoria(datosEntradaMentoria, usuario));
+            DatosSalidaMentoria datosSalidaMentoria = new DatosSalidaMentoria(mentoria);
+            URI url = uriComponentsBuilder.path("mentoria/{id}").buildAndExpand(mentoria.getIdMentoria()).toUri();
+            return ResponseEntity.created(url).body(datosSalidaMentoria);
+        }
+        else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping
-    public ResponseEntity<Page<DatosRespuestaMentoria>> listadoMentorias(Pageable paginacion) {
-        return ResponseEntity.ok(mentoriaRepository.findAll(paginacion).map(DatosRespuestaMentoria::new));
+    public ResponseEntity<Page<DatosSalidaMentoria>> listadoMentorias(Pageable paginacion) {
+        return ResponseEntity.ok(mentoriaRepository.findAll(paginacion).map(DatosSalidaMentoria::new));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DatosSalidaMentoria> retornarDatosMentoria(@PathVariable Long id) {
+        if (mentoriaRepository.existsById(id)) {
+            Mentoria mentoria = mentoriaRepository.getReferenceById(id);
+            var datosMentoria = new DatosSalidaMentoria(mentoria);
+            return ResponseEntity.ok(datosMentoria);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<DatosSalidaMentoria> actualizarMentoria(@PathVariable Long id, @RequestBody @Valid DatosEntradaMentoria datosEntradaMentoria) {
+        if (mentoriaRepository.existsById(id)) {
+            Mentoria mentoriaActualizada = service.actualizar(id, datosEntradaMentoria);
+            return ResponseEntity.ok(new DatosSalidaMentoria(mentoriaActualizada));
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> eliminarMentoria(@PathVariable Long id) {
+        if (mentoriaRepository.existsById(id)) {
+            mentoriaRepository.deleteById(id);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

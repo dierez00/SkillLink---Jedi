@@ -1,8 +1,10 @@
-package com.skilllink.backend.entity.mentoria;
+package com.skilllink.backend.dto.mentoria;
+
+import com.skilllink.backend.entity.Mentoria;
 
 import java.time.LocalDateTime;
 
-public record DatosRespuestaMentoria(
+public record DatosSalidaMentoria(
         Long idMentoria,
         Long idUsuario,
         String titulo,
@@ -10,7 +12,7 @@ public record DatosRespuestaMentoria(
         LocalDateTime fechaPublicacion,
         String estado) {
 
-    public DatosRespuestaMentoria(Mentoria mentoria) {
+    public DatosSalidaMentoria(Mentoria mentoria) {
         this(mentoria.getIdMentoria(),
                 mentoria.getUsuario().getIdUsuario(),
                 mentoria.getTitulo(),

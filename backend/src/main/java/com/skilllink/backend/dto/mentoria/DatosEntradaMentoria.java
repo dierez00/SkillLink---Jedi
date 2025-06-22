@@ -1,4 +1,4 @@
-package com.skilllink.backend.entity.mentoria;
+package com.skilllink.backend.dto.mentoria;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
-public record DatosRegistroMentoria(
+public record DatosEntradaMentoria(
         @NotNull
         Long idUsuario,
         @NotBlank

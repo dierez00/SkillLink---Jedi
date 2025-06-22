@@ -1,11 +1,11 @@
 package com.skilllink.backend.service;
 
-import com.skilllink.backend.entity.categoria.Categoria;
-import com.skilllink.backend.entity.categoria.CategoriaRepository;
-import com.skilllink.backend.entity.evento.Evento;
-import com.skilllink.backend.entity.evento.EventoRepository;
-import com.skilllink.backend.entity.mentoria.Mentoria;
-import com.skilllink.backend.entity.mentoria.MentoriaRepository;
+import com.skilllink.backend.entity.Categoria;
+import com.skilllink.backend.repository.CategoriaRepository;
+import com.skilllink.backend.entity.Evento;
+import com.skilllink.backend.repository.EventoRepository;
+import com.skilllink.backend.entity.Mentoria;
+import com.skilllink.backend.repository.MentoriaRepository;
 import com.skilllink.backend.entity.usuario.Usuario;
 import com.skilllink.backend.entity.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

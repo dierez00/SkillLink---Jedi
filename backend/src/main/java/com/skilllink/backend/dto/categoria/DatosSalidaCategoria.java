@@ -1,11 +1,13 @@
-package com.skilllink.backend.entity.categoria;
+package com.skilllink.backend.dto.categoria;
 
-public record DatosRespuestaCategoria(
+import com.skilllink.backend.entity.Categoria;
+
+public record DatosSalidaCategoria(
         Long idCategoria,
         String nombre,
         String descripcion) {
 
-    public DatosRespuestaCategoria(Categoria categoria) {
+    public DatosSalidaCategoria(Categoria categoria) {
         this(categoria.getIdCategoria(),
                 categoria.getNombre(),
                 categoria.getDescripcion());

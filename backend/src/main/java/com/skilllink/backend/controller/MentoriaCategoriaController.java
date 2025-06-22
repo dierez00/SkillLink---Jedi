@@ -1,7 +1,7 @@
 package com.skilllink.backend.controller;
 
-import com.skilllink.backend.entity.categoria.Categoria;
-import com.skilllink.backend.entity.mentoria.Mentoria;
+import com.skilllink.backend.entity.Categoria;
+import com.skilllink.backend.entity.Mentoria;
 import com.skilllink.backend.entity.mentoriaCategoria.DatosRegistroMentoriaCategoria;
 import com.skilllink.backend.entity.mentoriaCategoria.DatosRespuestaMentoriaCategoria;
 import com.skilllink.backend.entity.mentoriaCategoria.MentoriaCategoria;
@@ -22,10 +22,10 @@ import java.net.URI;
 public class MentoriaCategoriaController {
 
     @Autowired
-    MentoriaCategoriaRepository mentoriaCategoriaRepository;
+    private MentoriaCategoriaRepository mentoriaCategoriaRepository;
 
     @Autowired
-    VerificarExistenciaService service;
+    private VerificarExistenciaService service;
 
     @PostMapping
     public ResponseEntity<DatosRespuestaMentoriaCategoria> registrarMentoriaCategoria(

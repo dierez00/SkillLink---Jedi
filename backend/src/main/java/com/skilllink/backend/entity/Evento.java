@@ -1,15 +1,18 @@
-package com.skilllink.backend.entity.evento;
+package com.skilllink.backend.entity;
 
+import com.skilllink.backend.dto.evento.DatosEntradaEvento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity //uses class name as entity name, else specify with e.g. (name = "Evento")
 @Table(name = "Evento") //specifies db table name, else defaults to lower case class name
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Evento {
@@ -25,12 +28,13 @@ public class Evento {
     private LocalDateTime fechaEvento;
     private String organizador;
 
-    public Evento(DatosRegistroEvento datosRegistroEvento) {
-        this.titulo = datosRegistroEvento.titulo();
-        this.descripcion = datosRegistroEvento.descripcion();
-        this.ubicacion = datosRegistroEvento.ubicacion();
-        this.fechaEvento = datosRegistroEvento.fechaEvento();
-        this.organizador = datosRegistroEvento.organizador();
+    public Evento(DatosEntradaEvento datosEntradaEvento) {
+        this.titulo = datosEntradaEvento.titulo();
+        this.descripcion = datosEntradaEvento.descripcion();
+        this.ubicacion = datosEntradaEvento.ubicacion();
+        this.fechaEvento = datosEntradaEvento.fechaEvento();
+        this.organizador = datosEntradaEvento.organizador();
     }
+
 }
 
