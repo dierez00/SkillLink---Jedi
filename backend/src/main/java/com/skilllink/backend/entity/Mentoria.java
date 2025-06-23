@@ -1,7 +1,6 @@
 package com.skilllink.backend.entity;
 
 import com.skilllink.backend.dto.mentoria.DatosEntradaMentoria;
-import com.skilllink.backend.entity.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

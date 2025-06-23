@@ -1,8 +1,6 @@
 package com.skilllink.backend.service;
 
-import com.skilllink.backend.dto.categoria.DatosEntradaCategoria;
 import com.skilllink.backend.dto.evento.DatosEntradaEvento;
-import com.skilllink.backend.entity.Categoria;
 import com.skilllink.backend.entity.Evento;
 import com.skilllink.backend.repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

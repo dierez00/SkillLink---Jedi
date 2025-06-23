@@ -1,15 +1,15 @@
-package com.skilllink.backend.entity.mentoriaCategoria;
+package com.skilllink.backend.entity;
 
-import com.skilllink.backend.entity.Categoria;
-import com.skilllink.backend.entity.Mentoria;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "Mentoria_Categoria")
 @Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class MentoriaCategoria {

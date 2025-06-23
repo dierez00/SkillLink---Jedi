@@ -1,8 +1,8 @@
-package com.skilllink.backend.entity.mentoriaCategoria;
+package com.skilllink.backend.dto.mentoriaCategoria;
 
 import jakarta.validation.constraints.NotNull;
 
-public record DatosRegistroMentoriaCategoria(
+public record DatosEntradaMentoriaCategoria(
         @NotNull
         Long idMentoria,
         @NotNull

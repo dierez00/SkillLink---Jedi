@@ -1,11 +1,13 @@
-package com.skilllink.backend.entity.mentoriaCategoria;
+package com.skilllink.backend.dto.mentoriaCategoria;
 
-public record DatosRespuestaMentoriaCategoria(
+import com.skilllink.backend.entity.MentoriaCategoria;
+
+public record DatosSalidaMentoriaCategoria(
         Long idMentoriaCategoria,
         Long idMentoria,
         Long idCategoria) {
 
-    public DatosRespuestaMentoriaCategoria(MentoriaCategoria mentoriaCategoria) {
+    public DatosSalidaMentoriaCategoria(MentoriaCategoria mentoriaCategoria) {
         this(mentoriaCategoria.getIdMentoriaCategoria(),
                 mentoriaCategoria.getMentoria().getIdMentoria(),
                 mentoriaCategoria.getCategoria().getIdCategoria());

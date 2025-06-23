@@ -3,11 +3,10 @@ package com.skilllink.backend.controller;
 import com.skilllink.backend.dto.mentoria.DatosEntradaMentoria;
 import com.skilllink.backend.dto.mentoria.DatosSalidaMentoria;
 import com.skilllink.backend.entity.Mentoria;
-import com.skilllink.backend.entity.usuario.UsuarioRepository;
+import com.skilllink.backend.repository.UsuarioRepository;
 import com.skilllink.backend.repository.MentoriaRepository;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.Usuario;
 import com.skilllink.backend.service.MentoriaService;
-import com.skilllink.backend.service.VerificarExistenciaService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +27,6 @@ public class MentoriaController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-
-    @Autowired
-    private VerificarExistenciaService service1;
 
     @Autowired
     private MentoriaService service;
@@ -68,7 +64,7 @@ public class MentoriaController {
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<DatosSalidaMentoria> actualizarMentoria(@PathVariable Long id, @RequestBody @Valid DatosEntradaMentoria datosEntradaMentoria) {
-        if (mentoriaRepository.existsById(id)) {
+        if (mentoriaRepository.existsById(id) && usuarioRepository.existsById(datosEntradaMentoria.idUsuario())) {
             Mentoria mentoriaActualizada = service.actualizar(id, datosEntradaMentoria);
             return ResponseEntity.ok(new DatosSalidaMentoria(mentoriaActualizada));
         } else {

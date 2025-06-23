@@ -1,8 +1,8 @@
-package com.skilllink.backend.entity.registroEvento;
+package com.skilllink.backend.dto.registroEvento;
 
 import jakarta.validation.constraints.NotNull;
 
-public record DatosRegistroRegistroEvento(
+public record DatosEntradaRegistroEvento(
         @NotNull
         Long idUsuario,
         @NotNull
