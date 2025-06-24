@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="w-full bg-white border-t border-gray-300">
-     
+
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-         
+
           <div className="space-y-4">
             <div className="flex items-center">
               <div className="bg-black p-2 rounded-lg mr-3">
@@ -58,7 +58,7 @@ const Footer = () => {
             </div>
           </div>
 
-         
+
           <div className="space-y-3">
             <h3 className="text-sm font-semibold text-black uppercase tracking-wider">
               Enlaces
@@ -81,7 +81,7 @@ const Footer = () => {
             </nav>
           </div>
 
-       
+
           <div className="space-y-3">
             <h3 className="text-sm font-semibold text-black uppercase tracking-wider">
               Legal
@@ -103,7 +103,7 @@ const Footer = () => {
             </nav>
           </div>
 
-         
+
           <div className="space-y-3">
             <h3 className="text-sm font-semibold text-black uppercase tracking-wider">
               Newsletter
@@ -128,7 +128,7 @@ const Footer = () => {
           </div>
         </div>
 
-       
+
         <div className="mt-12 pt-8 border-t border-gray-300 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm">© 2025 Skill. Todos los derechos reservados.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">

@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Lógica de autenticación
-    navigate("/");
+    navigate("/home");
   };
 
   return (

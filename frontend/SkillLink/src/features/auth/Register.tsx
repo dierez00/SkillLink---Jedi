@@ -1,5 +1,6 @@
 // src/features/auth/Register.tsx
 import React from "react";
+import "../../styles/CrearCuenta/crearCuenta.css"
 import { useNavigate, Link } from "react-router-dom";
 
 const Register: React.FC = () => {
