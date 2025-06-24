@@ -1,5 +1,6 @@
 package com.skilllink.backend.service;
 
+import com.skilllink.backend.dto.perfilHabilidad.ActualziarPerfilHabilidad;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
 import com.skilllink.backend.entity.Habilidad;
 import com.skilllink.backend.entity.Perfil;
@@ -27,6 +28,22 @@ public class ServicioDePerfilHabilidad {
     @Autowired
     HabilidadRepositorio habilidadRepositorio;
 
+
+    public PerfilHabilidad actualizarUsuario (ActualziarPerfilHabilidad dto, Usuario usuario){
+
+        PerfilHabilidad perfilHabilidad = perfilHabilidadRepositorio.findByPerfilUsuarioAndHabilidadIdHabilidad(usuario, dto.idHabilidad()).orElseThrow(
+                () -> new EntityNotFoundException("No se encontro habilidad con id: " + dto.idHabilidad() + " relacionada al usuario")
+        );
+
+        if (dto.nivel() != null && !dto.nivel().isBlank()){
+            perfilHabilidad.setNivel(dto.nivel());
+        }
+        if (dto.anosDeExperiencia() != null){
+            perfilHabilidad.setAnosExperiencia(dto.anosDeExperiencia());
+        }
+
+        return perfilHabilidadRepositorio.save(perfilHabilidad);
+    }
 
     public void eliminarHabilidad(Long idHabilidad, Usuario usuario){
 

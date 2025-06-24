@@ -1,6 +1,9 @@
 package com.skilllink.backend.controller;
 
+import com.skilllink.backend.dto.perfilHabilidad.ActualziarPerfilHabilidad;
+import com.skilllink.backend.dto.perfilHabilidad.HabilidadesPerfil;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
+import com.skilllink.backend.entity.PerfilHabilidad;
 import com.skilllink.backend.entity.Usuario;
 import com.skilllink.backend.service.ServicioDePerfilHabilidad;
 import jakarta.validation.Valid;
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/habilidad")
+@RequestMapping("/api/habilidad")
 public class PerfilHabilidadController {
 
     @Autowired
@@ -32,6 +35,19 @@ public class PerfilHabilidadController {
         servicioDePerfilHabilidad.eliminarHabilidad(idHabilidad, usuario);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/actualizar")
+    public ResponseEntity<HabilidadesPerfil> actualizarHabilidad (@RequestBody ActualziarPerfilHabilidad dto,
+                                                                  @AuthenticationPrincipal Usuario usuario){
+
+         PerfilHabilidad perfilHabilidad = servicioDePerfilHabilidad.actualizarUsuario(dto, usuario);
+         HabilidadesPerfil habilidadesPerfil = new HabilidadesPerfil(
+                 perfilHabilidad.getHabilidad().getIdHabilidad(),
+                 perfilHabilidad.getHabilidad().getNombre(), perfilHabilidad.getNivel(),
+                 perfilHabilidad.getAnosExperiencia());
+
+         return ResponseEntity.ok(habilidadesPerfil);
     }
 
 

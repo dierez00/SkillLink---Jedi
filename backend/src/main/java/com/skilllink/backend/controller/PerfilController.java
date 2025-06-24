@@ -1,6 +1,5 @@
 package com.skilllink.backend.controller;
 
-
 import com.skilllink.backend.dto.perfil.ConsultaPerfil;
 import com.skilllink.backend.dto.perfil.DatosDeSalidaPerfil;
 import com.skilllink.backend.dto.perfil.DatosPerfil;
@@ -21,7 +20,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/perfil")
+@RequestMapping("/api/perfil")
 public class PerfilController {
 
     @Autowired

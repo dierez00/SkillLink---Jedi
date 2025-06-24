@@ -16,7 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/registro")
+@RequestMapping("/api/registro")
 public class RegistroController {
 
     @Autowired

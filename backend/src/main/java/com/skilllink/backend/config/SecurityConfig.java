@@ -28,9 +28,10 @@ public class SecurityConfig {
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 //Autoriza las peticiones POST y GET únicamente de los endpoints especificados
                 .authorizeHttpRequests(authRequest -> authRequest
-                        .requestMatchers(HttpMethod.POST, "/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/skills").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/registrar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/ingresar").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/habilidades").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/usuario/rol").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

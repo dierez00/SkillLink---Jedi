@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping ("/recomendacion-social")
+@RequestMapping ("/api/recomendacion-social")
 public class RecomendacionesController {
 
     @Autowired
