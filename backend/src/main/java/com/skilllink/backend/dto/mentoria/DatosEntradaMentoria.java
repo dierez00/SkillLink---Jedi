@@ -1,4 +1,4 @@
-package com.skilllink.backend.entity.evento;
+package com.skilllink.backend.dto.mentoria;
 
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
@@ -6,16 +6,16 @@ import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
-public record DatosRegistroEvento(
+public record DatosEntradaMentoria(
+        @NotNull
+        Long idUsuario,
         @NotBlank
         String titulo,
         @NotBlank
         String descripcion,
-        @NotBlank
-        String ubicacion,
         @NotNull
         @Future
-        LocalDateTime fechaEvento,
+        LocalDateTime fechaPublicacion,
         @NotBlank
-        String organizador) {
+        String estado) {
 }

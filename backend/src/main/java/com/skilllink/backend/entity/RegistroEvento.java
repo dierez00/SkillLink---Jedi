@@ -1,18 +1,15 @@
-package com.skilllink.backend.entity.registroEvento;
+package com.skilllink.backend.entity;
 
-import com.skilllink.backend.entity.evento.Evento;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.dto.registroEvento.DatosEntradaRegistroEvento;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Registro_Evento")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "idRegistro")
@@ -33,7 +30,7 @@ public class RegistroEvento {
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
 
-    public RegistroEvento(DatosRegistroRegistroEvento datosRegistroRegistroEvento, Usuario usuario, Evento evento) {
+    public RegistroEvento(DatosEntradaRegistroEvento datosEntradaRegistroEvento, Usuario usuario, Evento evento) {
         this.usuario = usuario;
         this.evento = evento;
         this.fechaRegistro = LocalDateTime.now();

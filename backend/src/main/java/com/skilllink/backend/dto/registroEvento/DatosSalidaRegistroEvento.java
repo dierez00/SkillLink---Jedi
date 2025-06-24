@@ -1,18 +1,19 @@
-package com.skilllink.backend.entity.registroEvento;
+package com.skilllink.backend.dto.registroEvento;
+
+import com.skilllink.backend.entity.RegistroEvento;
 
 import java.time.LocalDateTime;
 
-public record DatosListadoRegistroEvento(
+public record DatosSalidaRegistroEvento(
         Long idRegistro,
         Long idUsuario,
         Long idEvento,
         LocalDateTime fechaRegistro) {
 
-    public DatosListadoRegistroEvento(RegistroEvento registroEvento) {
+    public DatosSalidaRegistroEvento(RegistroEvento registroEvento) {
         this(registroEvento.getIdRegistro(),
                 registroEvento.getUsuario().getIdUsuario(),
                 registroEvento.getEvento().getIdEvento(),
                 registroEvento.getFechaRegistro());
     }
-
 }

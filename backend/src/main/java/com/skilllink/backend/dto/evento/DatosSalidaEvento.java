@@ -1,8 +1,10 @@
-package com.skilllink.backend.entity.evento;
+package com.skilllink.backend.dto.evento;
+
+import com.skilllink.backend.entity.Evento;
 
 import java.time.LocalDateTime;
 
-public record DatosListadoEvento(
+public record DatosSalidaEvento(
         Long idEvento,
         String titulo,
         String descripcion,
@@ -10,7 +12,7 @@ public record DatosListadoEvento(
         LocalDateTime fechaEvento,
         String organizador) {
 
-    public DatosListadoEvento(Evento evento) {
+    public DatosSalidaEvento(Evento evento) {
         this(evento.getIdEvento(),
                 evento.getTitulo(),
                 evento.getDescripcion(),
