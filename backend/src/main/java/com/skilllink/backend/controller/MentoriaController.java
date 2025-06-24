@@ -2,6 +2,7 @@ package com.skilllink.backend.controller;
 
 import com.skilllink.backend.dto.mentoria.DatosEntradaMentoria;
 import com.skilllink.backend.dto.mentoria.DatosSalidaMentoria;
+import com.skilllink.backend.entity.Evento;
 import com.skilllink.backend.entity.Mentoria;
 import com.skilllink.backend.repository.UsuarioRepository;
 import com.skilllink.backend.repository.MentoriaRepository;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/mentoria")
@@ -81,5 +83,11 @@ public class MentoriaController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<DatosSalidaMentoria>> buscarMentoriasPorHabilidad(@RequestParam String habilidad) {
+        List<DatosSalidaMentoria> resultados = service.buscarMentoriasPorHabilidad(habilidad);
+        return ResponseEntity.ok(resultados);
     }
 }

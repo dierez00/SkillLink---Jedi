@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/evento")
@@ -70,5 +71,11 @@ public class EventoController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<DatosSalidaEvento>> buscarEventosPorHabilidad(@RequestParam String habilidad) {
+        List<DatosSalidaEvento> resultados = service.buscarEventosPorHabilidad(habilidad);
+        return ResponseEntity.ok(resultados);
     }
 }
