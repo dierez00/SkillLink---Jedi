@@ -1,39 +1,38 @@
 package com.skilllink.backend.controller;
 
 
+import com.skilllink.backend.dto.usuario.UsuarioConsultaDTO;
 import com.skilllink.backend.entity.usuario.Usuario;
 import com.skilllink.backend.dto.usuario.UsuarioInfoSalida;
 import com.skilllink.backend.repository.UsuarioRepositorio;
+import com.skilllink.backend.service.ServicioDeUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/usuario")
 public class UsuarioController {
 
     @Autowired
-    UsuarioRepositorio usuarioRepository;
+    ServicioDeUsuario servicioDeUsuario;
 
-    @GetMapping("/{idUsuario}")
-    public ResponseEntity<UsuarioInfoSalida> obtenerUsuario(@PathVariable Long idUsuario) {
+    @GetMapping("/cuenta")
+    public ResponseEntity<UsuarioConsultaDTO> obtenerUsuario(@AuthenticationPrincipal Usuario usuario) {
 
+        Usuario consultarUsuario = servicioDeUsuario.consultarUsuario(usuario.getIdUsuario());
+        UsuarioConsultaDTO usuarioConsultaDTO = new UsuarioConsultaDTO(consultarUsuario.getNombre(), consultarUsuario.getEmail(),
+                consultarUsuario.getFechaRegistro());
+        return ResponseEntity.ok(usuarioConsultaDTO);
+    }
 
-        Optional<Usuario> revisarUsuario = usuarioRepository.findById(idUsuario);
-
-        if (revisarUsuario.isPresent()){
-            Usuario usuario = revisarUsuario.get();
-            UsuarioInfoSalida usuarioInfoSalida = new UsuarioInfoSalida(usuario.getIdUsuario(), usuario.getNombre(), usuario.getEmail(), usuario.getFechaRegistro());
-            return ResponseEntity.ok(usuarioInfoSalida);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-
+    @DeleteMapping("/eliminar-cuenta")
+    public ResponseEntity<Void> eliminarUsuario(@AuthenticationPrincipal Usuario usuario) {
+       servicioDeUsuario.eliminarUsuario(usuario.getIdUsuario());
+        return ResponseEntity.noContent().build();
     }
 
 }

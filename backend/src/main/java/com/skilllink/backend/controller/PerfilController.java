@@ -1,10 +1,13 @@
 package com.skilllink.backend.controller;
 
 
+import com.skilllink.backend.dto.perfil.ConsultaPerfil;
 import com.skilllink.backend.dto.perfil.DatosDeSalidaPerfil;
 import com.skilllink.backend.dto.perfil.DatosPerfil;
+import com.skilllink.backend.dto.perfil.DatosPerfilActualizado;
+import com.skilllink.backend.dto.perfilHabilidad.HabilidadesPerfil;
 import com.skilllink.backend.entity.perfil.Perfil;
-import com.skilllink.backend.service.ServicioModificacionDePerfil;
+import com.skilllink.backend.service.ServicioDePerfil;
 import com.skilllink.backend.entity.usuario.Usuario;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,30 +17,78 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/profile")
+@RequestMapping("/perfil")
 public class PerfilController {
 
     @Autowired
-    ServicioModificacionDePerfil servicioModificacionDePerfil;
+    ServicioDePerfil servicioDePerfil;
 
-    @PostMapping
+    @PostMapping("/crear")
     //La etiqueta @Authentication Principal inyecta al usuario actualmente verifcado al controlador
-    public ResponseEntity<DatosDeSalidaPerfil> crearPerfil(@RequestBody @Valid DatosPerfil datosPerfil, @AuthenticationPrincipal Usuario usuario, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<DatosDeSalidaPerfil> crearPerfil(@RequestBody @Valid DatosPerfil datosPerfil,
+                                                           @AuthenticationPrincipal Usuario usuario,
+                                                           UriComponentsBuilder uriComponentsBuilder) {
 
+        Perfil perfil = servicioDePerfil.creacionDePerfil(usuario, datosPerfil);
 
-        Perfil perfil = servicioModificacionDePerfil.creacionDePerfil(usuario, datosPerfil);
         DatosDeSalidaPerfil datosDeSalidaPerfil = new DatosDeSalidaPerfil(perfil.getUsuario().getNombre(),
                 perfil.getDescripcion(), perfil.getExperiencia(), perfil.getUbicacion(), perfil.getRedesSociales(), datosPerfil.habilidades());
 
-        URI url = uriComponentsBuilder.path("/profile/{id}").buildAndExpand(perfil.getIdPerfil()).toUri();
+        URI url = uriComponentsBuilder.path("/perfil/{id}").buildAndExpand(perfil.getIdPerfil()).toUri();
 
         return ResponseEntity.created(url).body(datosDeSalidaPerfil);
     }
 
-//    @PutMapping
-//    public ResponseEntity actualizarPerfil (@RequestBody @Valid DatosPerfilActualizado)
-//
-//}
+    @GetMapping("/mi-cuenta")
+    public ResponseEntity<ConsultaPerfil> obtenerMiPerfil(@AuthenticationPrincipal Usuario usuario){
+
+        Perfil consultarPerfil = servicioDePerfil.consultarPerfil(usuario.getPerfil().getIdPerfil());
+
+        List<HabilidadesPerfil> habilidadDTO = consultarPerfil.getPerfilHabilidad()
+                .stream().map(
+                        ph -> new HabilidadesPerfil(ph.getHabilidad().getIdHabilidad(),
+                                ph.getHabilidad().getNombre(), ph.getNivel(),
+                                ph.getAnosExperiencia())
+                ).collect(Collectors.toList());
+
+        ConsultaPerfil consultaPerfil = new ConsultaPerfil(consultarPerfil.getUsuario().getNombre(),
+                consultarPerfil.getDescripcion(), consultarPerfil.getExperiencia(), consultarPerfil.getUbicacion(),
+                consultarPerfil.getRedesSociales(), habilidadDTO);
+
+        return  ResponseEntity.ok(consultaPerfil);
+    }
+
+    @GetMapping("/{idPerfil}")
+    public ResponseEntity<ConsultaPerfil> obtenerPerfil(@PathVariable Long idPerfil){
+
+        Perfil consultarPerfil = servicioDePerfil.consultarPerfil(idPerfil);
+
+        List<HabilidadesPerfil> habilidadDTO = consultarPerfil.getPerfilHabilidad()
+                .stream().map(
+                        ph -> new HabilidadesPerfil(ph.getHabilidad().getIdHabilidad(),
+                                ph.getHabilidad().getNombre(), ph.getNivel(),
+                                ph.getAnosExperiencia())
+                ).collect(Collectors.toList());
+
+        ConsultaPerfil consultaPerfil = new ConsultaPerfil(consultarPerfil.getUsuario().getNombre(),
+                consultarPerfil.getDescripcion(), consultarPerfil.getExperiencia(), consultarPerfil.getUbicacion(),
+                consultarPerfil.getRedesSociales(), habilidadDTO);
+
+        return  ResponseEntity.ok(consultaPerfil);
+    }
+
+    @PutMapping("/actualizar")
+    public ResponseEntity<DatosPerfilActualizado> modificarPerfil (@RequestBody DatosPerfilActualizado datosPerfilActualizado,
+                                                                   @AuthenticationPrincipal Usuario usuario){
+        Perfil perfil = servicioDePerfil.modificarPerfil(datosPerfilActualizado, usuario);
+
+        DatosPerfilActualizado datosPerfilActualizado1 = new DatosPerfilActualizado(perfil.getDescripcion(),
+                perfil.getExperiencia(), perfil.getUbicacion(), perfil.getRedesSociales());
+
+        return ResponseEntity.ok(datosPerfilActualizado);
+    }
 }

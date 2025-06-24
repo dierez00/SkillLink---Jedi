@@ -6,6 +6,7 @@ import com.skilllink.backend.dto.habilidad.HabilidadDTO;
 import com.skilllink.backend.repository.HabilidadRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,14 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/skills")
+@RequestMapping("/habilidades")
 public class HabilidadController {
 
     @Autowired
     HabilidadRepositorio habilidadRepositorio;
 
     @GetMapping
-    public ResponseEntity<List<HabilidadDTO>> obtenerListadoHabilidades(){
+    public ResponseEntity<List<HabilidadDTO>> obtenerListadoHabilidades() {
         List<Habilidad> habilidades = habilidadRepositorio.findAll();
 
         List<HabilidadDTO> habilidadDTOS = habilidades.stream()
@@ -29,6 +30,4 @@ public class HabilidadController {
 
         return ResponseEntity.ok(habilidadDTOS);
     }
-
-
 }

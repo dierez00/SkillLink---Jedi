@@ -1,6 +1,7 @@
 package com.skilllink.backend.service;
 
 import com.skilllink.backend.dto.perfil.DatosPerfil;
+import com.skilllink.backend.dto.perfil.DatosPerfilActualizado;
 import com.skilllink.backend.entity.perfil.Perfil;
 import com.skilllink.backend.repository.PerfilRepositorio;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
@@ -8,13 +9,14 @@ import com.skilllink.backend.entity.perfilHabilidad.PerfilHabilidad;
 import com.skilllink.backend.entity.usuario.Usuario;
 import com.skilllink.backend.entity.habilidad.Habilidad;
 import com.skilllink.backend.repository.HabilidadRepositorio;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class ServicioModificacionDePerfil {
+public class ServicioDePerfil {
 
     @Autowired
     private PerfilRepositorio perfilRepositorio;
@@ -57,6 +59,33 @@ public class ServicioModificacionDePerfil {
             }
         }
         return perfilRepositorio.save(perfil);
+    }
+
+    public Perfil modificarPerfil (DatosPerfilActualizado datosPerfilActualizado, Usuario usuario){
+
+        Perfil perfil = perfilRepositorio.findById(usuario.getIdUsuario())
+                .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
+
+        if (datosPerfilActualizado.descripcion() != null){
+            perfil.setDescripcion(datosPerfilActualizado.descripcion());
+        }
+        if (datosPerfilActualizado.experiencia() != null) {
+            perfil.setExperiencia(datosPerfilActualizado.experiencia());
+        }
+        if (datosPerfilActualizado.redesSociales() != null) {
+            perfil.setRedesSociales(datosPerfilActualizado.redesSociales());
+        }
+        if (datosPerfilActualizado.ubicacion() != null){
+            perfil.setUbicacion(datosPerfilActualizado.ubicacion());
+        }
+        return perfilRepositorio.save(perfil);
+    }
+
+    public Perfil consultarPerfil (Long idPerfil){
+
+        return perfilRepositorio.findById(idPerfil).orElseThrow(
+                () -> new EntityNotFoundException("No se encontró el perfil")
+        );
     }
 
 }

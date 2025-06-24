@@ -1,4 +1,13 @@
 package com.skilllink.backend.dto.perfilHabilidad;
 
-public record HabilidadesSeleccionadas(Long idHabildad, String nivel, int anosDeExperiencia ) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record HabilidadesSeleccionadas(
+        @NotNull
+        Long idHabildad,
+        @NotBlank
+        String nivel,
+        @NotNull
+        int anosDeExperiencia) {
 }
