@@ -2,7 +2,7 @@ package com.skilllink.backend.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.Usuario;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

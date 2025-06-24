@@ -1,7 +1,7 @@
 package com.skilllink.backend.controller;
 
 import com.skilllink.backend.dto.usuario.MatchSocialPorcentuado;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.Usuario;
 import com.skilllink.backend.repository.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

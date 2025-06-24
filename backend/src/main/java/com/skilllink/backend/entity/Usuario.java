@@ -1,6 +1,5 @@
-package com.skilllink.backend.entity.usuario;
+package com.skilllink.backend.entity;
 
-import com.skilllink.backend.entity.perfil.Perfil;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;

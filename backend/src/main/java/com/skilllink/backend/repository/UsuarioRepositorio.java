@@ -1,7 +1,7 @@
 package com.skilllink.backend.repository;
 
 import com.skilllink.backend.dto.usuario.MatchSocialPorcentuado;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.Usuario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

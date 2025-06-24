@@ -1,10 +1,10 @@
 package com.skilllink.backend.service;
 
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
-import com.skilllink.backend.entity.habilidad.Habilidad;
-import com.skilllink.backend.entity.perfil.Perfil;
-import com.skilllink.backend.entity.perfilHabilidad.PerfilHabilidad;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.Habilidad;
+import com.skilllink.backend.entity.Perfil;
+import com.skilllink.backend.entity.PerfilHabilidad;
+import com.skilllink.backend.entity.Usuario;
 import com.skilllink.backend.repository.HabilidadRepositorio;
 import com.skilllink.backend.repository.PerfilHabilidadRepositorio;
 import com.skilllink.backend.repository.PerfilRepositorio;

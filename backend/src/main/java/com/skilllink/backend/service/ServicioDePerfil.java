@@ -2,12 +2,12 @@ package com.skilllink.backend.service;
 
 import com.skilllink.backend.dto.perfil.DatosPerfil;
 import com.skilllink.backend.dto.perfil.DatosPerfilActualizado;
-import com.skilllink.backend.entity.perfil.Perfil;
+import com.skilllink.backend.entity.Perfil;
 import com.skilllink.backend.repository.PerfilRepositorio;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
-import com.skilllink.backend.entity.perfilHabilidad.PerfilHabilidad;
-import com.skilllink.backend.entity.usuario.Usuario;
-import com.skilllink.backend.entity.habilidad.Habilidad;
+import com.skilllink.backend.entity.PerfilHabilidad;
+import com.skilllink.backend.entity.Usuario;
+import com.skilllink.backend.entity.Habilidad;
 import com.skilllink.backend.repository.HabilidadRepositorio;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;

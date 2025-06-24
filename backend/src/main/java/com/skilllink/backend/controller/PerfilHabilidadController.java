@@ -1,7 +1,7 @@
 package com.skilllink.backend.controller;
 
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
-import com.skilllink.backend.entity.usuario.Usuario;
+import com.skilllink.backend.entity.Usuario;
 import com.skilllink.backend.service.ServicioDePerfilHabilidad;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

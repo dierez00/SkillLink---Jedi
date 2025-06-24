@@ -1,7 +1,5 @@
-package com.skilllink.backend.entity.perfil;
+package com.skilllink.backend.entity;
 
-import com.skilllink.backend.entity.usuario.Usuario;
-import com.skilllink.backend.entity.perfilHabilidad.PerfilHabilidad;
 import jakarta.persistence.*;
 import lombok.*;
 
