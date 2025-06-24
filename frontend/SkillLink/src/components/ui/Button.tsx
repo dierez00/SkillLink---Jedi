@@ -24,11 +24,11 @@ const Button = ({
         "h-[35px] px-2 rounded-[10px]",
         "font-bold select-none text-nowrap",
         "shadow-xl transition",
-        "hover:scale-110",
+        "hover:text-sky-600 hover:-translate-y-0.5",
         style === "primary" &&
           "text-[#474747] bg-white border-[1px] border-[#474747]",
         style === "secondary" && "bg-[#474747] text-white",
-        style === "tertiary" && "bg-[#65CEEB] text-white ",
+        style === "tertiary" && "bg-black text-white ",
         className,
       )}
       onClick={onClick}
