@@ -6,7 +6,7 @@ import Input from "../../ui/Input";
 const LoginForm = () => {
   const navigate = useNavigate();
   const idCheck = useId();
-  const { login } = useAuth(); 
+  const { login } = useAuth();
 
   const [email, setEmail] = useState("");
   const [contrasena, setContrasena] = useState("");
@@ -19,7 +19,7 @@ const LoginForm = () => {
       const response = await fetch("http://localhost:8081/api/ingresar", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, contrasena }),
       });
@@ -29,8 +29,8 @@ const LoginForm = () => {
       }
 
       const data = await response.json();
-      login(data.token); 
-      navigate("/courses-page"); 
+      login(data.token);
+      navigate("/courses-page");
     } catch (err: any) {
       setError(err.message || "Ocurrió un error");
     }
@@ -123,7 +123,8 @@ const LoginForm = () => {
         </div>
 
         <div className="mt-6 text-center text-xs text-gray-500">
-          © {new Date().getFullYear()} Tu Empresa. Todos los derechos reservados.
+          © {new Date().getFullYear()} Tu Empresa. Todos los derechos
+          reservados.
         </div>
       </div>
     </div>
