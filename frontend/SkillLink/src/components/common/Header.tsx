@@ -1,93 +1,160 @@
-import { cn } from "clsx-for-tailwind";
-import { useState } from "react";
+import { Bell, CaretDown, MagnifyingGlass } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import menu from "../../assets/images/menu.png";
-import lightning from "../../assets/images/Rayo.png";
-import Button from "../ui/Button";
-import MainWidth from "../ui/MainWidth";
+import logo from "../../assets/images/Rayo.png";
 
 const Header = () => {
-  const [showMenu, setShowMenu] = useState(false);
-
   const navigate = useNavigate();
   const location = useLocation();
 
-  // const handleLoginButton = () => {
-  //   navigate("/login");
-  // };
-  const handleCreateAccountButton = () => {
-    navigate("/create-account");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("Usuario");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [userImage, setUserImage] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const name = localStorage.getItem("username");
+    let image = localStorage.getItem("userImage");
+
+    if (!image) {
+      image = "https://i.pravatar.cc/150?img=3";
+      localStorage.setItem("userImage", image);
+    }
+    setIsLoggedIn(!!token);
+    if (name) setUsername(name);
+    if (image) setUserImage(image);
+  }, [location]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    localStorage.removeItem("userImage");
+    navigate("/login");
   };
 
   return (
-    <header
-      className={cn(
-        "bg-black h-[70px] shadow-[0_3px_5px_gray]",
-        "max-[290px]:h-[150px]",
-      )}
-    >
-      <MainWidth
-        className={cn(
-          "relative flex justify-between items-center flex-wrap",
-          "h-full ",
-        )}
-      >
-        <Link to={"/"} className={cn("flex gap-2.5")}>
-          <img src={lightning} alt="Imagen de un rayo" />
-
-          <h1 className={cn("text-3xl text-white font-bold select-none")}>
-            Skill Link
-          </h1>
+    <header className="flex items-center justify-between border-b border-gray-200 px-10 py-3">
+      <div className="flex items-center gap-8">
+        <Link to="/" className="flex items-center gap-2 text-[#121416]">
+          <img src={logo} alt="Logo" className="size-6" />
+          <h2 className="text-lg font-bold tracking-[-0.015em]">Skill Link</h2>
         </Link>
+
+        {isLoggedIn && (
+          <nav className="flex items-center gap-9">
+            <Link to="/" className="text-sm font-medium text-[#121416]">
+              Home
+            </Link>
+            <Link
+              to="/my-learning"
+              className="text-sm font-medium text-[#121416]"
+            >
+              Mi aprendizaje
+            </Link>
+            <Link to="#" className="text-sm font-medium text-[#121416]">
+              Wishlist
+            </Link>
+            <Link
+              to="/courses-page"
+              className="text-sm font-medium text-[#121416]"
+            >
+              Cursos
+            </Link>
+          </nav>
+        )}
+      </div>
+
+      <div className="flex items-center gap-6">
+        <label className="min-w-40 max-w-64 h-10 hidden sm:block">
+          <div className="flex items-stretch rounded-xl h-full">
+            <div className="flex items-center justify-center pl-4 text-[#6a7581] bg-[#f1f2f4] rounded-l-xl">
+              <MagnifyingGlass size={24} />
+            </div>
+            <input
+              placeholder="Buscar"
+              className="w-full bg-[#f1f2f4] px-4 text-base text-[#121416] rounded-r-xl border-none focus:outline-none"
+            />
+          </div>
+        </label>
 
         <button
           type="button"
-          className={cn(
-            "border-white border-[1px] rounded-md min-[600px]:hidden",
-          )}
-          onClick={() => {
-            setShowMenu(!showMenu);
-          }}
+          className="rounded-full bg-[#f1f2f4] h-10 w-10 flex items-center justify-center text-[#121416]"
         >
-          <img src={menu} alt="Menú desplegable" />
+          <Bell size={20} />
         </button>
-        <div
-          className={cn(
-            "flex gap-4 flex-wrap justify-center items-center text-gray-200",
-            "max-[600px]:absolute max-[600px]:top-20 max-[600px]:bg-black/65",
-            "max-[600px]:h-[200px] max-[600px]:flex-col ",
-            showMenu ? "max-[600px]:right-2" : "max-[600px]:right-full",
-            "max-[600px]:px-3.5 max-[600px]:rounded-md",
-          )}
-        >
-          {/* <Button onClick={handleLoginButton}>Iniciar sesión</Button> */}
-          <Link
-            to={"/login"}
-            className={cn(
-              "py-1.5 transition-all",
-              location.pathname === "/login" &&
-                "font-bold text-white border-b-2 border-white",
-            )}
-          >
-            Iniciar Sesión
-          </Link>
 
-          <Link
-            to={"/create-account"}
-            className={cn(
-              "py-1.5 transition-all",
-              location.pathname === "/create-account" &&
-                "font-bold text-white border-b-2 border-white",
-            )}
-          >
-            Registrarse
-          </Link>
+        {isLoggedIn ? (
+          <div className="relative">
+            <button
+              type="button"
+              className="flex items-center gap-2 focus:outline-none"
+              onClick={() => setShowDropdown(!showDropdown)}
+            >
+              <div
+                className="rounded-full size-10 bg-center bg-cover"
+                style={{
+                  backgroundImage: `url(${userImage || "https://lh3.googleusercontent.com/a-/default-user.png"})`,
+                }}
+              ></div>
+              <CaretDown size={16} />
+            </button>
 
-          <Button style="primary" onClick={handleCreateAccountButton}>
-            Prueba Gratis
-          </Button>
-        </div>
-      </MainWidth>
+            {showDropdown && (
+              <div className="absolute right-0 mt-2 bg-white shadow-lg rounded-md overflow-hidden z-50 w-48">
+                <div className="px-4 py-3 border-b border-gray-100 text-sm text-gray-800 font-medium">
+                  {username}
+                </div>
+                <Link
+                  to="/my-profile"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  onClick={() => setShowDropdown(false)}
+                >
+                  Mi perfil
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Cerrar sesión
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="flex items-center gap-4">
+            <Link
+              to="/login"
+              className={`text-sm ${
+                location.pathname === "/login"
+                  ? "font-bold text-[#121416] border-b-2 border-[#121416]"
+                  : "text-[#121416]"
+              }`}
+            >
+              Iniciar Sesión
+            </Link>
+            <Link
+              to="/create-account"
+              className={`text-sm ${
+                location.pathname === "/create-account"
+                  ? "font-bold text-[#121416] border-b-2 border-[#121416]"
+                  : "text-[#121416]"
+              }`}
+            >
+              Registrarse
+            </Link>
+            <button
+              type="button"
+              onClick={() => navigate("/create-account")}
+              className="bg-[#121416] text-white px-4 py-2 rounded-md text-sm font-bold"
+            >
+              Prueba Gratis
+            </button>
+          </div>
+        )}
+      </div>
     </header>
   );
 };

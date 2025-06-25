@@ -1,20 +1,41 @@
-// src/features/auth/Login.tsx
-import { type FormEvent, useId } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import Input from "../../ui/Input";
 
-// import Input from "../../ui/Input";
+import { type FormEvent, useId, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/user/AuthContext";
+import Input from "../../ui/Input";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-
-  const handleLogin = (e: FormEvent) => {
-    e.preventDefault();
-    // Lógica de autenticación
-    navigate("/");
-  };
-
   const idCheck = useId();
+  const { login } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [contrasena, setContrasena] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = async (e: FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:8081/api/ingresar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, contrasena }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Credenciales incorrectas");
+      }
+
+      const data = await response.json();
+      login(data.token);
+      navigate("/courses-page");
+    } catch (err: any) {
+      setError(err.message || "Ocurrió un error");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white/45 flex items-center justify-center p-4">
@@ -30,30 +51,44 @@ const LoginForm = () => {
               </p>
             </div>
 
+            {error && (
+              <div className="text-red-600 text-sm text-center mb-4">
+                {error}
+              </div>
+            )}
+
             <form onSubmit={handleLogin} className="space-y-6">
               <Input
                 name="Correo electrónico"
                 type="email"
                 placeholder="ejemplo@gmail.com"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
 
-              <Input name="Contraseña" type="password" required />
+              <Input
+                name="Contraseña"
+                type="password"
+                required
+                value={contrasena}
+                onChange={(e) => setContrasena(e.target.value)}
+              />
 
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <label
-                    htmlFor={idCheck}
-                    className="ml-2 block text-sm text-gray-700"
-                  >
-                    Recordarme
-                  </label>
                   <input
                     id={idCheck}
                     name="remember-me"
                     type="checkbox"
                     className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                   />
+                  <label
+                    htmlFor={idCheck}
+                    className="ml-2 block text-sm text-gray-700"
+                  >
+                    Recordarme
+                  </label>
                 </div>
 
                 <div className="text-sm">

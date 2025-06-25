@@ -1,38 +1,31 @@
-import { cn } from "clsx-for-tailwind";
+import React from "react";
 
-interface Props {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  type: "text" | "email" | "password";
-  className?: string;
-  placeholder?: string;
-  required?: boolean;
+  label?: string;
 }
-const Input = ({
-  name,
-  type,
-  className,
-  placeholder,
-  required = false,
-}: Props) => {
-  return (
-    <div className={className}>
-      <label className={cn("font-bold text-gray-600")} htmlFor={name}>
-        {name}
-      </label>
-      <br />
-      <input
-        className={cn(
-          "w-full p-2 text-black rounded-sm",
-          "border-2 border-gray-400 outline-none",
-          "focus:border-purple-300",
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ name, label, ...props }, ref) => {
+    return (
+      <div className="space-y-1">
+        {label && (
+          <label htmlFor={name} className="block text-sm font-medium text-gray-700">
+            {label}
+          </label>
         )}
-        id={name}
-        type={type}
-        placeholder={placeholder}
-        required={required}
-      />
-    </div>
-  );
-};
+        <input
+          id={name}
+          name={name}
+          ref={ref}
+          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+          {...props}
+        />
+      </div>
+    );
+  }
+);
+
+Input.displayName = "Input";
 
 export default Input;
