@@ -51,4 +51,11 @@ public class DesafioController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Desafio>> getDesafiosByHabilidad(@RequestParam String habilidad) {
+        List<Desafio> resultados = service.findDesafiosByHabilidad(habilidad);
+        return ResponseEntity.ok(resultados);
+    }
+
 }
