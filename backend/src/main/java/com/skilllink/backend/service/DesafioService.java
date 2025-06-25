@@ -45,4 +45,9 @@ public class DesafioService {
         }
         return false;
     }
+
+    public List<Desafio> findDesafiosByHabilidad(String habilidad) {
+        return repository.findByHabilidadInDescripcion(habilidad);
+    }
+
 }

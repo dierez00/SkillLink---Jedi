@@ -54,12 +54,18 @@ public class ProyectoController {
     }
     @GetMapping("/{id}/tecnologias")
     public ResponseEntity<ProyectoConTecnologiasDTO> getProyectoConTecnologias(@PathVariable Long id) {
-    try {
-        ProyectoConTecnologiasDTO dto = service.getProyectoConTecnologias(id);
-        return ResponseEntity.ok(dto);
-    } catch (RuntimeException e) {
-        return ResponseEntity.notFound().build();
+        try {
+            ProyectoConTecnologiasDTO dto = service.getProyectoConTecnologias(id);
+            return ResponseEntity.ok(dto);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
-}
+
+    @GetMapping("/buscar")
+    public ResponseEntity<List<Proyecto>> getProyectosByHabilidad(@RequestParam String habilidad) {
+        List<Proyecto> resultados = service.findProyectosByHabilidad(habilidad);
+        return ResponseEntity.ok(resultados);
+    }
 
 }
