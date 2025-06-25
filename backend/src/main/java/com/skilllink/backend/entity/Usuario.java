@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
-@Table(name = "usuario")
+@Table(name = "Usuario")
 @Entity(name = "Usuario")
 @Getter
 @Setter
@@ -26,10 +26,12 @@ public class Usuario implements UserDetails {
     private Long idUsuario;
     private String nombre;
     private String email;
-    @Column(name = "contraseña")
+    @Column(name = "contrasea")
     private String contrasena;
     private String rol;
+    @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
+    private String nickname;
 
     @OneToOne (mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Perfil perfil;

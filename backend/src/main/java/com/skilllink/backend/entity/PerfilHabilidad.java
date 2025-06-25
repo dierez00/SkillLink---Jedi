@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "perfil_habilidad")
+@Table(name = "Perfil_Habilidad")
 @Entity(name = "PerfilHabilidad")
 @EqualsAndHashCode (of = "idPerfilHabilidad")
 public class PerfilHabilidad {
@@ -18,7 +18,7 @@ public class PerfilHabilidad {
     private Long idPerfilHabilidad;
 
     private String nivel;
-    @Column (name = "años_experiencia")
+    @Column (name = "aos_experiencia")
     private int anosExperiencia;
 
     @ManyToOne(fetch = FetchType.LAZY)

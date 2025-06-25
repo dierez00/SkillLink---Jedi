@@ -14,7 +14,10 @@ public record UsuarioInfRegistro(
         String contrasena,
 
         @NotBlank(message = "Selecciona tu rol")
-        String rol
+        String rol,
+
+        @NotBlank
+        String nickname
         ) {
 
 }

@@ -7,10 +7,14 @@ import com.skilllink.backend.dto.habilidad.HabilidadDTO;
 import com.skilllink.backend.repository.HabilidadRepositorio;
 import com.skilllink.backend.service.ServicioDeHabilidad;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/habilidades")
@@ -21,22 +25,29 @@ public class HabilidadController {
     @Autowired
     ServicioDeHabilidad servicioDeHabilidad;
 
-    @GetMapping
-    public ResponseEntity<List<HabilidadDTO>> obtenerListadoHabilidades() {
-        List<Habilidad> habilidades = habilidadRepositorio.findAll();
+    @GetMapping("/consultar")
+    public ResponseEntity<Page<HabilidadDTO>> obtenerListadoHabilidades(@PageableDefault Pageable pageable) {
 
-        List<HabilidadDTO> habilidadDTOS = habilidades.stream()
-                .map(habilidad -> new HabilidadDTO(habilidad.getIdHabilidad(),
-                        habilidad.getNombre(), habilidad.getCategoria())).toList();
+        Page<Habilidad> listaHabilidades = servicioDeHabilidad.listadoHabilidades(pageable);
+        Page<HabilidadDTO> dto = listaHabilidades.map(lh -> new HabilidadDTO(
+                lh.getIdHabilidad(), lh.getNombre(), lh.getCategoria()
+        ));
 
-        return ResponseEntity.ok(habilidadDTOS);
+        return ResponseEntity.ok(dto);
     }
 
-    @PostMapping
+    @PostMapping("/agregar")
     public ResponseEntity<HabilidadDTO> agregarHabilidades(@RequestBody NuevaHabilidadDTO nuevaHabilidadDTO){
 
         Habilidad habilidad  = servicioDeHabilidad.agregarHabilidad(nuevaHabilidadDTO);
         HabilidadDTO habilidadDTO = new HabilidadDTO(habilidad.getIdHabilidad(), habilidad.getNombre(), habilidad.getCategoria());
         return ResponseEntity.ok(habilidadDTO);
     }
+
+    @DeleteMapping("/eliminar/{idHabilidad}")
+    public ResponseEntity<Void> eliminarHabilidad (@PathVariable Long idHabilidad){
+        servicioDeHabilidad.eliminarHabilidad(idHabilidad);
+        return ResponseEntity.noContent().build();
+    }
+
 }

@@ -63,7 +63,7 @@ public class ServicioDePerfil {
 
     public Perfil modificarPerfil (DatosPerfilActualizado datosPerfilActualizado, Usuario usuario){
 
-        Perfil perfil = perfilRepositorio.findById(usuario.getIdUsuario())
+        Perfil perfil = perfilRepositorio.findById(usuario.getPerfil().getIdPerfil())
                 .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
 
         if (datosPerfilActualizado.descripcion() != null){

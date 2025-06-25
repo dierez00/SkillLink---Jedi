@@ -28,6 +28,7 @@ public class ServicioDeRegistro {
         nuevoUsuario.setEmail(usuarioInfRegistro.email());
         nuevoUsuario.setContrasena(contrasenaEncriptada);
         nuevoUsuario.setRol(usuarioInfRegistro.rol());
+        nuevoUsuario.setNickname(usuarioInfRegistro.nickname());
         nuevoUsuario.setFechaRegistro(LocalDateTime.now());
 
         return usuarioRepository.save(nuevoUsuario);

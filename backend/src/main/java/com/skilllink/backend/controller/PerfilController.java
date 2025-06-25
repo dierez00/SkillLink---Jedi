@@ -85,9 +85,9 @@ public class PerfilController {
                                                                    @AuthenticationPrincipal Usuario usuario){
         Perfil perfil = servicioDePerfil.modificarPerfil(datosPerfilActualizado, usuario);
 
-        DatosPerfilActualizado datosPerfilActualizado1 = new DatosPerfilActualizado(perfil.getDescripcion(),
+        DatosPerfilActualizado dto = new DatosPerfilActualizado(perfil.getDescripcion(),
                 perfil.getExperiencia(), perfil.getUbicacion(), perfil.getRedesSociales());
 
-        return ResponseEntity.ok(datosPerfilActualizado);
+        return ResponseEntity.ok(dto);
     }
 }

@@ -17,7 +17,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-
     @Autowired
     SecurityFilter securityFilter;
 
@@ -28,10 +27,13 @@ public class SecurityConfig {
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 //Autoriza las peticiones POST y GET únicamente de los endpoints especificados
                 .authorizeHttpRequests(authRequest -> authRequest
-                        .requestMatchers(HttpMethod.POST, "/api/registrar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/registro").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/ingresar").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/habilidades").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/usuario/rol").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/habilidades/consultar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/habilidades/agregar").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/usuario/roles").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/categoria/obtener").permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
@@ -49,3 +51,4 @@ public class SecurityConfig {
     }
 
 }
+
