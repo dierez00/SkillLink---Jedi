@@ -1,0 +1,97 @@
+.section_home {
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+/* Estilos para el carrusel */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    /* Bordes redondeados */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* Animación de deslizamiento suave */
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estilos para las flechas de navegación */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-button:hover {
+    background-color: white;
+}
+
+.carousel-button.prev {
+    left: 0;
+    /* Posicionado a la izquierda del contenedor relativo */
+}
+
+.carousel-button.next {
+    right: 0;
+    /* Posicionado a la derecha del contenedor relativo */
+}
+
+/* Estilos para los puntos de navegación */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.dot {
+    padding: 5px;
+    height: .5px;
+    width: .5px;
+    margin: 0 5px;
+    background-color: #d1d5db;
+    /* Gris claro */
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #3b82f6;
+    /* Azul */
+}
+
+/* Estilo para el enlace de navegación activo */
+.nav-link-active {
+    border-bottom: 2px solid #3b82f6;
+    color: #3b82f6;
+    font-weight: 600;
+}
