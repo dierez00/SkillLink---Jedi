@@ -122,6 +122,9 @@ backend/
 │   │   │               │   ├── registroEvento/
 │   │   │               │   ├── tecnologia/
 │   │   │               │   └── usuario/
+│   │   │               ├── emums                   # 🔢 Enumeraciones y constantes (roles y niveles de habilidad)
+│   │   │               ├── errors                  # ⚠️ Excepciones y manejo de errores
+│   │   │               ├── mapper                  # 🔄 Conversión entre Entity ↔ DTO (mapeo de objetos)
 │   │   │               ├── repository/             # 🗃️ Interfaces JPARepository para interacción con la DB
 │   │   │               ├── service/                # 🧠 Servicios de negocio (VerificarService, etc.)
 │   │   │               └── BackendApplication.java # 🚀 Clase principal (punto de entrada de Spring Boot)
