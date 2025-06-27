@@ -41,6 +41,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/habilidades/agregar").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/usuario/roles").permitAll()
                         .requestMatchers(HttpMethod.GET, "/categoria/obtener").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/habilidad/niveles").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

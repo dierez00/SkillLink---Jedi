@@ -39,7 +39,7 @@ public class PerfilHabilidadController {
                                                                             @AuthenticationPrincipal Usuario usuario){
 
         List<HabilidadesSeleccionadas> habilidadesSeleccionadas = perfilHabilidadService.agregarHabilidad(habilidadesNuevas, usuario);
-        return ResponseEntity.ok(habilidadesNuevas);
+        return ResponseEntity.ok(habilidadesSeleccionadas);
 
     }
 
