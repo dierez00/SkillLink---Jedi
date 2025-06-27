@@ -50,7 +50,7 @@ public class PerfilController {
         List<HabilidadesPerfil> habilidadDTO = consultarPerfil.getPerfilHabilidad()
                 .stream().map(
                         ph -> new HabilidadesPerfil(ph.getHabilidad().getIdHabilidad(),
-                                ph.getHabilidad().getNombre(), ph.getNivel(),
+                                ph.getHabilidad().getNombre(), String.valueOf(ph.getNivel()),
                                 ph.getAnosExperiencia())
                 ).collect(Collectors.toList());
 
@@ -69,7 +69,7 @@ public class PerfilController {
         List<HabilidadesPerfil> habilidadDTO = consultarPerfil.getPerfilHabilidad()
                 .stream().map(
                         ph -> new HabilidadesPerfil(ph.getHabilidad().getIdHabilidad(),
-                                ph.getHabilidad().getNombre(), ph.getNivel(),
+                                ph.getHabilidad().getNombre(), String.valueOf(ph.getNivel()),
                                 ph.getAnosExperiencia())
                 ).collect(Collectors.toList());
 

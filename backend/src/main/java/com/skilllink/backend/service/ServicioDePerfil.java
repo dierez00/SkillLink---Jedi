@@ -3,6 +3,7 @@ package com.skilllink.backend.service;
 import com.skilllink.backend.dto.perfil.DatosPerfil;
 import com.skilllink.backend.dto.perfil.DatosPerfilActualizado;
 import com.skilllink.backend.entity.Perfil;
+import com.skilllink.backend.enums.NivelHabilidad;
 import com.skilllink.backend.repository.PerfilRepositorio;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
 import com.skilllink.backend.entity.PerfilHabilidad;
@@ -48,35 +49,35 @@ public class ServicioDePerfil {
                 Habilidad habilidad = habilidadRepositorio.findById(habilidadesSeleccionadas.idHabildad())
                         .orElseThrow(() -> new RuntimeException("No existe  la habilidad con la id:"));
 
-                PerfilHabilidad perfilHabilidad = new PerfilHabilidad();
+                PerfilHabilidad ph = new PerfilHabilidad();
 
-                perfilHabilidad.setPerfil(perfil);
-                perfilHabilidad.setHabilidad(habilidad);
-                perfilHabilidad.setNivel(habilidadesSeleccionadas.nivel());
-                perfilHabilidad.setAnosExperiencia(habilidadesSeleccionadas.anosDeExperiencia());
+                ph.setPerfil(perfil);
+                ph.setHabilidad(habilidad);
+                ph.setNivel(NivelHabilidad.valueOf(habilidadesSeleccionadas.nivel()));
+                ph.setAnosExperiencia(habilidadesSeleccionadas.anosDeExperiencia());
 
-                perfil.getPerfilHabilidad().add(perfilHabilidad);
+                perfil.getPerfilHabilidad().add(ph);
             }
         }
         return perfilRepositorio.save(perfil);
     }
 
-    public Perfil modificarPerfil (DatosPerfilActualizado datosPerfilActualizado, Usuario usuario){
+    public Perfil modificarPerfil (DatosPerfilActualizado dto, Usuario usuario){
 
         Perfil perfil = perfilRepositorio.findById(usuario.getPerfil().getIdPerfil())
                 .orElseThrow(() -> new EntityNotFoundException("usuario no encontrado"));
 
-        if (datosPerfilActualizado.descripcion() != null){
-            perfil.setDescripcion(datosPerfilActualizado.descripcion());
+        if (dto.descripcion() != null){
+            perfil.setDescripcion(dto.descripcion());
         }
-        if (datosPerfilActualizado.experiencia() != null) {
-            perfil.setExperiencia(datosPerfilActualizado.experiencia());
+        if (dto.experiencia() != null) {
+            perfil.setExperiencia(dto.experiencia());
         }
-        if (datosPerfilActualizado.redesSociales() != null) {
-            perfil.setRedesSociales(datosPerfilActualizado.redesSociales());
+        if (dto.redesSociales() != null) {
+            perfil.setRedesSociales(dto.redesSociales());
         }
-        if (datosPerfilActualizado.ubicacion() != null){
-            perfil.setUbicacion(datosPerfilActualizado.ubicacion());
+        if (dto.ubicacion() != null){
+            perfil.setUbicacion(dto.ubicacion());
         }
         return perfilRepositorio.save(perfil);
     }

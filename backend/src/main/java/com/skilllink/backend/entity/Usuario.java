@@ -1,5 +1,6 @@
 package com.skilllink.backend.entity;
 
+import com.skilllink.backend.enums.RolUsuario;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -28,7 +29,8 @@ public class Usuario implements UserDetails {
     private String email;
     @Column(name = "contrasea")
     private String contrasena;
-    private String rol;
+    @Enumerated(EnumType.STRING)
+    private RolUsuario rol;
     @Column(name = "fecha_registro")
     private LocalDateTime fechaRegistro;
     private String nickname;

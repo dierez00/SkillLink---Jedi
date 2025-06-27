@@ -1,11 +1,12 @@
 package com.skilllink.backend.service;
 
-import com.skilllink.backend.dto.perfilHabilidad.ActualziarPerfilHabilidad;
+import com.skilllink.backend.dto.perfilHabilidad.ActualziarHabilidad;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesSeleccionadas;
 import com.skilllink.backend.entity.Habilidad;
 import com.skilllink.backend.entity.Perfil;
 import com.skilllink.backend.entity.PerfilHabilidad;
 import com.skilllink.backend.entity.Usuario;
+import com.skilllink.backend.enums.NivelHabilidad;
 import com.skilllink.backend.repository.HabilidadRepositorio;
 import com.skilllink.backend.repository.PerfilHabilidadRepositorio;
 import com.skilllink.backend.repository.PerfilRepositorio;
@@ -29,19 +30,17 @@ public class ServicioDePerfilHabilidad {
     HabilidadRepositorio habilidadRepositorio;
 
 
-    public PerfilHabilidad actualizarUsuario (ActualziarPerfilHabilidad dto, Usuario usuario){
+    public PerfilHabilidad actualizarUsuario (ActualziarHabilidad dto, Usuario usuario){
 
         PerfilHabilidad perfilHabilidad = perfilHabilidadRepositorio.findByPerfilUsuarioAndHabilidadIdHabilidad(usuario, dto.idHabilidad()).orElseThrow(
                 () -> new EntityNotFoundException("No se encontro habilidad con id: " + dto.idHabilidad() + " relacionada al usuario")
         );
-
         if (dto.nivel() != null && !dto.nivel().isBlank()){
-            perfilHabilidad.setNivel(dto.nivel());
+            perfilHabilidad.setNivel(NivelHabilidad.valueOf(dto.nivel()));
         }
         if (dto.anosDeExperiencia() != null){
             perfilHabilidad.setAnosExperiencia(dto.anosDeExperiencia());
         }
-
         return perfilHabilidadRepositorio.save(perfilHabilidad);
     }
 
@@ -62,33 +61,30 @@ public class ServicioDePerfilHabilidad {
     public List<HabilidadesSeleccionadas> agregarHabilidad(List<HabilidadesSeleccionadas> habilidadesSeleccionadas,
                                                            Usuario usuario) {
         Perfil perfil = perfilRepositorio.findByUsuario(usuario);
-
         List<Long> idHabilidadesExistentes = perfilHabilidadRepositorio.findIdHabilidadByPerfilId(perfil.getIdPerfil());
-
         List<PerfilHabilidad> nuevasAsociaciones = new ArrayList<>();
 
         for (HabilidadesSeleccionadas dto : habilidadesSeleccionadas) {
             if (idHabilidadesExistentes.contains(dto.idHabildad())) {
                 throw new IllegalStateException("La habilidad con ID " + dto.idHabildad() + " ya está asociada a este perfil.");
             }
-
             Habilidad habilidad = habilidadRepositorio.findById(dto.idHabildad())
                     .orElseThrow(() -> new EntityNotFoundException("Habilidad no encontrada con ID: " + dto.idHabildad()));
-
+            
             PerfilHabilidad nuevaAsociacion = new PerfilHabilidad();
-
             nuevaAsociacion.setPerfil(perfil);
             nuevaAsociacion.setHabilidad(habilidad);
-            nuevaAsociacion.setNivel(dto.nivel());
+            nuevaAsociacion.setNivel(NivelHabilidad.valueOf(dto.nivel()));
             nuevaAsociacion.setAnosExperiencia(dto.anosDeExperiencia());
             nuevasAsociaciones.add(nuevaAsociacion);
+            
         }
         List<PerfilHabilidad> asociacionesGuardadas = perfilHabilidadRepositorio.saveAll(nuevasAsociaciones);
 
         return asociacionesGuardadas.stream()
                 .map(ph -> new HabilidadesSeleccionadas(
                         ph.getHabilidad().getIdHabilidad(),
-                        ph.getNivel(),
+                        String.valueOf(ph.getNivel()),
                         ph.getAnosExperiencia()))
                 .collect(Collectors.toList());
 
