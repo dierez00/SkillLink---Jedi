@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.5.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.skilllink</groupId>
 	<artifactId>backend</artifactId>
@@ -70,8 +70,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.32</version> <!-- Always specify version -->
-			<scope>provided</scope>    <!-- Also better than optional -->
+			<version>1.18.32</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
