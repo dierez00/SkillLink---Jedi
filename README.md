@@ -105,10 +105,10 @@ backend/
 │   │   │   └── com/
 │   │   │       └── skilllink/
 │   │   │           └── backend/
-│   │   │               ├── config/               # ⚙️ Configuración de seguridad y JWT
-│   │   │               ├── controller/           # 🎮 Controladores REST (EventoController, UsuarioController, etc.)
-│   │   │               ├── dto/                  # 📦 Clases DTO (entrada y salida de datos)
-│   │   │               ├── entity/               # 🧩 Entidades JPA mapeadas a tablas de la BD (Usuario, Evento, etc.)
+│   │   │               ├── config/                 # ⚙️ Configuración de seguridad y JWT
+│   │   │               ├── controller/             # 🎮 Controladores REST (EventoController, UsuarioController, etc.)
+│   │   │               ├── dto/                    # 📦 Clases DTO (entrada y salida de datos)
+│   │   │               ├── entity/                 # 🧩 Entidades JPA mapeadas a tablas de la BD (Usuario, Evento, etc.)
 │   │   │               │   ├── categoria/
 │   │   │               │   ├── desafio/
 │   │   │               │   ├── evento/
@@ -122,18 +122,18 @@ backend/
 │   │   │               │   ├── registroEvento/
 │   │   │               │   ├── tecnologia/
 │   │   │               │   └── usuario/
-│   │   │               ├── repository/           # 🗃️ Interfaces JPARepository para interacción con la DB
-│   │   │               ├── service/              # 🧠 Servicios de negocio (VerificarService, etc.)
+│   │   │               ├── repository/             # 🗃️ Interfaces JPARepository para interacción con la DB
+│   │   │               ├── service/                # 🧠 Servicios de negocio (VerificarService, etc.)
 │   │   │               └── BackendApplication.java # 🚀 Clase principal (punto de entrada de Spring Boot)
 │   │   └── resources/
-│   │       ├── application.properties          # 🔧 Configuración general (DB, puertos, etc.)
+│   │       ├── application.properties              # 🔧 Configuración general (DB, puertos, etc.)
 │   │       ├── static/
 │   │       └── templates/
 ├── .gitignore
 ├── HELP.md
 ├── mvnw
 ├── mvnw.cmd
-├── pom.xml                                     # 📦 Archivo de configuración de dependencias Maven
+├── pom.xml                                         # 📦 Archivo de configuración de dependencias Maven
 └── README.md
 ```
 ---
