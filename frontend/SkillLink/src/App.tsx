@@ -9,6 +9,7 @@ import { CoursesPage } from "./pages/CoursesPage";
 import CreateAcount from "./pages/CreateAcount";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import ForgotPassword from "./components/features/auth/ForgotPassword";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create-account" element={<CreateAcount />} />
-
+          <Route path="/forgot-password" element={<ForgotPassword />} /> 
           {/* Rutas protegidas - solo accesibles con autenticación */}
           <Route element={<ProtectedRoute />}>
             <Route path="/my-learning" element={<MyLearning />} />
