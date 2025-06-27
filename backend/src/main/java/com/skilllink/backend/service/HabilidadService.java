@@ -1,6 +1,5 @@
 package com.skilllink.backend.service;
 
-import com.skilllink.backend.dto.habilidad.HabilidadDTO;
 import com.skilllink.backend.dto.habilidad.NuevaHabilidadDTO;
 import com.skilllink.backend.entity.Habilidad;
 import com.skilllink.backend.repository.HabilidadRepositorio;
@@ -10,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ServicioDeHabilidad {
+public class HabilidadService {
 
     @Autowired
     HabilidadRepositorio habilidadRepositorio;

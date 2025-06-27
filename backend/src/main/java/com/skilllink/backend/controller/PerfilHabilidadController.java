@@ -7,7 +7,7 @@ import com.skilllink.backend.dto.perfilHabilidad.NivelDTO;
 import com.skilllink.backend.entity.PerfilHabilidad;
 import com.skilllink.backend.entity.Usuario;
 import com.skilllink.backend.enums.NivelHabilidad;
-import com.skilllink.backend.service.ServicioDePerfilHabilidad;
+import com.skilllink.backend.service.PerfilHabilidadService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +22,7 @@ import java.util.List;
 public class PerfilHabilidadController {
 
     @Autowired
-    ServicioDePerfilHabilidad servicioDePerfilHabilidad;
+    PerfilHabilidadService perfilHabilidadService;
 
 
     @GetMapping("/niveles")
@@ -38,14 +38,14 @@ public class PerfilHabilidadController {
     public ResponseEntity<List<HabilidadesSeleccionadas>> agregarHabilidad (@RequestBody @Valid List<HabilidadesSeleccionadas> habilidadesNuevas,
                                                                             @AuthenticationPrincipal Usuario usuario){
 
-        List<HabilidadesSeleccionadas> habilidadesSeleccionadas = servicioDePerfilHabilidad.agregarHabilidad(habilidadesNuevas, usuario);
+        List<HabilidadesSeleccionadas> habilidadesSeleccionadas = perfilHabilidadService.agregarHabilidad(habilidadesNuevas, usuario);
         return ResponseEntity.ok(habilidadesNuevas);
 
     }
 
     @DeleteMapping("/borrar/{idHabilidad}")
     public ResponseEntity<Void> eliminarHabilidad(@PathVariable Long idHabilidad, @AuthenticationPrincipal Usuario usuario){
-        servicioDePerfilHabilidad.eliminarHabilidad(idHabilidad, usuario);
+        perfilHabilidadService.eliminarHabilidad(idHabilidad, usuario);
 
         return ResponseEntity.noContent().build();
     }
@@ -54,7 +54,7 @@ public class PerfilHabilidadController {
     public ResponseEntity<HabilidadesPerfil> actualizarHabilidad (@RequestBody ActualziarHabilidad dto,
                                                                   @AuthenticationPrincipal Usuario usuario){
 
-         PerfilHabilidad ph = servicioDePerfilHabilidad.actualizarUsuario(dto, usuario);
+         PerfilHabilidad ph = perfilHabilidadService.actualizarUsuario(dto, usuario);
          HabilidadesPerfil habilidadesPerfil = new HabilidadesPerfil(
                  ph.getHabilidad().getIdHabilidad(),
                  ph.getHabilidad().getNombre(), String.valueOf(ph.getNivel()),

@@ -6,7 +6,7 @@ import com.skilllink.backend.dto.perfil.DatosPerfil;
 import com.skilllink.backend.dto.perfil.DatosPerfilActualizado;
 import com.skilllink.backend.dto.perfilHabilidad.HabilidadesPerfil;
 import com.skilllink.backend.entity.Perfil;
-import com.skilllink.backend.service.ServicioDePerfil;
+import com.skilllink.backend.service.PerfilService;
 import com.skilllink.backend.entity.Usuario;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class PerfilController {
 
     @Autowired
-    ServicioDePerfil servicioDePerfil;
+    PerfilService perfilService;
 
     @PostMapping("/crear")
     //La etiqueta @Authentication Principal inyecta al usuario actualmente verifcado al controlador
@@ -32,7 +32,7 @@ public class PerfilController {
                                                            @AuthenticationPrincipal Usuario usuario,
                                                            UriComponentsBuilder uriComponentsBuilder) {
 
-        Perfil perfil = servicioDePerfil.creacionDePerfil(usuario, datosPerfil);
+        Perfil perfil = perfilService.creacionDePerfil(usuario, datosPerfil);
 
         DatosDeSalidaPerfil datosDeSalidaPerfil = new DatosDeSalidaPerfil(perfil.getUsuario().getNombre(),
                 perfil.getDescripcion(), perfil.getExperiencia(), perfil.getUbicacion(), perfil.getRedesSociales(), datosPerfil.habilidades());
@@ -45,7 +45,7 @@ public class PerfilController {
     @GetMapping("/mi-cuenta")
     public ResponseEntity<ConsultaPerfil> obtenerMiPerfil(@AuthenticationPrincipal Usuario usuario){
 
-        Perfil consultarPerfil = servicioDePerfil.consultarPerfil(usuario.getPerfil().getIdPerfil());
+        Perfil consultarPerfil = perfilService.consultarPerfil(usuario.getPerfil().getIdPerfil());
 
         List<HabilidadesPerfil> habilidadDTO = consultarPerfil.getPerfilHabilidad()
                 .stream().map(
@@ -64,7 +64,7 @@ public class PerfilController {
     @GetMapping("/{idPerfil}")
     public ResponseEntity<ConsultaPerfil> obtenerPerfil(@PathVariable Long idPerfil){
 
-        Perfil consultarPerfil = servicioDePerfil.consultarPerfil(idPerfil);
+        Perfil consultarPerfil = perfilService.consultarPerfil(idPerfil);
 
         List<HabilidadesPerfil> habilidadDTO = consultarPerfil.getPerfilHabilidad()
                 .stream().map(
@@ -83,7 +83,7 @@ public class PerfilController {
     @PutMapping("/actualizar")
     public ResponseEntity<DatosPerfilActualizado> modificarPerfil (@RequestBody DatosPerfilActualizado datosPerfilActualizado,
                                                                    @AuthenticationPrincipal Usuario usuario){
-        Perfil perfil = servicioDePerfil.modificarPerfil(datosPerfilActualizado, usuario);
+        Perfil perfil = perfilService.modificarPerfil(datosPerfilActualizado, usuario);
 
         DatosPerfilActualizado dto = new DatosPerfilActualizado(perfil.getDescripcion(),
                 perfil.getExperiencia(), perfil.getUbicacion(), perfil.getRedesSociales());

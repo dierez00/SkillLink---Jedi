@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class ServicioDePerfil {
+public class PerfilService {
 
     @Autowired
     private PerfilRepositorio perfilRepositorio;
