@@ -3,8 +3,8 @@
 		"_postman_id": "2d4716a1-8793-4620-81c5-6fc63caab266",
 		"name": "SkillLink",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "44902803",
-		"_collection_link": "https://gold-rocket-379338.postman.co/workspace/My-Workspace~818a87dd-b80c-4aa6-8512-c4c62061ebf6/collection/34418810-2d4716a1-8793-4620-81c5-6fc63caab266?action=share&source=collection_link&creator=44902803"
+		"_exporter_id": "34418810",
+		"_collection_link": "https://gold-rocket-379338.postman.co/workspace/My-Workspace~818a87dd-b80c-4aa6-8512-c4c62061ebf6/collection/34418810-2d4716a1-8793-4620-81c5-6fc63caab266?action=share&source=collection_link&creator=34418810"
 	},
 	"item": [
 		{
@@ -1078,7 +1078,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nombre\": \"Luis Mendoza\",\r\n  \"email\": \"luis.mendoza@example.com\",\r\n  \"contrasena\": \"luis123\",\r\n  \"rol\": \"APRENDIZ\",\r\n  \"nickname\": \"luis_dev\"\r\n}",
+							"raw": "{\r\n  \"nombre\": \"Andrea Martínez\",\r\n  \"email\": \"andrea.mtz@example.com\",\r\n  \"contrasena\": \"andreadev2025\",\r\n  \"rol\": \"DOCENTE\",\r\n  \"nickname\": \"andymtz\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1104,7 +1104,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"joel.navarro@example.com\",\r\n    \"contrasena\": \"joel2025\"\r\n}\r\n",
+							"raw": "{\r\n  \"email\": \"andrea.mtz@example.com\",\r\n  \"contrasena\": \"andreadev2025\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1131,7 +1131,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODU3NzMyfQ.-WNGLxoucGT9UONm1Lvk-u-9VVuU5_jeZ8nb_JIIa1c",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpbmEubG9sYUBleGFtcGxlLmNvbSIsImlzcyI6IlNraWxsTGluayIsImlkIjoxNywiZXhwIjoxNzUwOTg3MDMyfQ.Uo6odsp8LtoEbaeHzzKYowMp6UpRGQ-gFOaWWBBqmRA",
 									"type": "string"
 								}
 							]
@@ -1210,7 +1210,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWEubXR6QGV4YW1wbGUuY29tIiwiaXNzIjoiU2tpbGxMaW5rIiwiaWQiOjIxLCJleHAiOjE3NTEwMDY1ODN9.FivuxXR_amEn_VHoqgODnIpJoBycpfAp0PCcGSMURRU",
 									"type": "string"
 								}
 							]
@@ -1219,7 +1219,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"descripcion\": \"Estudiante entusiasta de desarrollo backend con Java y Spring Boot.\",\r\n  \"experiencia\": \"Actualmente en formación, con proyectos personales.\",\r\n  \"ubicacion\": \"CDMX, México\",\r\n  \"redesSociales\": \"https://linkedin.com/in/luismendoza\",\r\n  \"habilidades\": [\r\n    {\r\n      \"idHabildad\": 1,\r\n      \"nivel\": \"Básico\",\r\n      \"anosDeExperiencia\": 1\r\n    },\r\n    {\r\n      \"idHabildad\": 3,\r\n      \"nivel\": \"Básico\",\r\n      \"anosDeExperiencia\": 1\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n  \"descripcion\": \"Docente especializada en tecnologías de la información, enfocada en formación backend.\",\r\n  \"experiencia\": \"3 años enseñando fundamentos de programación y estructuras de datos con Java.\",\r\n  \"ubicacion\": \"Monterrey, México\",\r\n  \"redesSociales\": \"https://linkedin.com/in/andymtz\",\r\n  \"habilidades\": [\r\n    {\r\n      \"idHabildad\": 1,\r\n      \"nivel\": \"INTERMEDIO\",\r\n      \"anosDeExperiencia\": 3\r\n    },\r\n    {\r\n      \"idHabildad\": 2,\r\n      \"nivel\": \"INTERMEDIO\",\r\n      \"anosDeExperiencia\": 2\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1331,14 +1331,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
 				}
 			]
 		},
@@ -1445,6 +1437,14 @@
 								"actualizar"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "getNiveles",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
