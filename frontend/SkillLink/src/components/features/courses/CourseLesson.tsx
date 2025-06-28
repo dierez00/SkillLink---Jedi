@@ -1,175 +1,175 @@
 import { Link, useParams } from "react-router-dom";
-
-// Datos simulados
-const lessons = [
-	{ id: 1, title: "Lesson 1: Getting Started", desc: "Introduction" },
-	{ id: 2, title: "Lesson 2: Core Concepts", desc: "Understanding the Basics" },
-	{ id: 3, title: "Lesson 3: Deep Dive", desc: "Advanced Techniques" },
-	{ id: 4, title: "Lesson 4: Hands-On Project", desc: "Practical Application" },
-	{ id: 5, title: "Lesson 5: Wrap-Up", desc: "Review and Next Steps" },
-	{ id: 6, title: "Lesson 6: Quiz", desc: "Final Assessment" },
-];
-
-const keyConcepts = [
-	"Setting up your development environment",
-	"Understanding the course structure",
-	"How to access resources",
-];
+import { Play, CheckCircle, BookOpen, Clock, ListChecks } from "@phosphor-icons/react";
 
 const CourseLesson = () => {
-	const { courseId, lessonId } = useParams();
+  const { courseId, lessonId } = useParams();
+  
+  const lessons = [
+    { id: 1, title: "Introducción", desc: "Configuración inicial" },
+    { id: 2, title: "Conceptos Básicos", desc: "Fundamentos esenciales" },
+    { id: 3, title: "Técnicas Avanzadas", desc: "Métodos profesionales" },
+    { id: 4, title: "Proyecto Práctico", desc: "Aplicación real" },
+    { id: 5, title: "Resumen Final", desc: "Repaso y conclusiones" },
+  ];
 
-	const currentLesson =
-		lessons.find((l) => l.id === Number(lessonId)) || lessons[0];
+  const currentLesson = lessons.find(l => l.id === Number(lessonId)) || lessons[0];
+  
+  const keyConcepts = [
+    "Configuración del entorno de desarrollo",
+    "Estructura del proyecto",
+    "Flujo de trabajo básico",
+    "Herramientas esenciales"
+  ];
 
-	return (
-		<div className="relative flex min-h-screen flex-col bg-white">
-			{/* Header */}
-			<header className="flex items-center justify-between border-b border-[#f1f2f4] px-10 py-3">
-				<div className="flex items-center gap-8">
-					<div className="flex items-center gap-4 text-[#121416]">
-						<div className="size-4">
-							<svg
-								viewBox="0 0 48 48"
-								fill="none"
-								className="w-6 h-6 text-[#121416]"
-							>
-								<circle cx="24" cy="24" r="20" fill="currentColor" />
-							</svg>
-						</div>
-						<h2 className="text-[#121416] text-lg font-bold">EduLearn</h2>
-					</div>
-					<nav className="flex items-center gap-9">
-						<Link to="/" className="text-[#121416] text-sm font-medium">
-							Home
-						</Link>
-						<Link
-							to="/my-learning"
-							className="text-[#121416] text-sm font-medium"
-						>
-							My Courses
-						</Link>
-						<Link to="/browse" className="text-[#121416] text-sm font-medium">
-							Browse
-						</Link>
-					</nav>
-				</div>
-				<div className="flex flex-1 justify-end gap-8">
-					<div
-						className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-						style={{
-							backgroundImage: `url("https://randomuser.me/api/portraits/women/44.jpg")`,
-						}}
-					/>
-				</div>
-			</header>
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <Link to="/" className="flex items-center">
+            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-1.5 rounded-lg mr-3">
+              <BookOpen size={20} className="text-white" />
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              EduLearn
+            </span>
+          </Link>
+          
+          <div className="flex items-center space-x-6">
+            <nav className="hidden md:flex space-x-8">
+              <Link to="/" className="text-gray-700 hover:text-indigo-600">Inicio</Link>
+              <Link to="/my-courses" className="text-gray-700 hover:text-indigo-600">Mis Cursos</Link>
+              <Link to="/browse" className="text-gray-700 hover:text-indigo-600">Explorar</Link>
+            </nav>
+            
+            <div className="h-8 w-8 rounded-full bg-cover bg-center border-2 border-indigo-100"
+              style={{ backgroundImage: 'url("https://randomuser.me/api/portraits/women/44.jpg")' }} />
+          </div>
+        </div>
+      </header>
 
-			<div className="flex flex-1 gap-1 px-6 py-5 justify-center">
-				<aside className="flex flex-col w-80">
-					<h2 className="text-[#121416] text-[22px] font-bold px-4 pb-3 pt-5">
-						Course Outline
-					</h2>
-					{lessons.map((lesson, idx) => (
-						<div
-							key={lesson.id}
-							className={`flex items-center gap-4 bg-white px-4 min-h-[72px] py-2 justify-between rounded-lg mb-2
-                ${Number(lessonId) === lesson.id ? "border border-[#0c7ff2] bg-[#f0f8ff]" : ""}`}
-						>
-							<div className="flex flex-col justify-center">
-								<p className="text-[#121416] text-base font-medium">
-									{lesson.title}
-								</p>
-								<p className="text-[#6a7581] text-sm">{lesson.desc}</p>
-							</div>
-							{idx < Number(lessonId) ? (
-								<span className="text-green-500">
-									<svg width="24" height="24" fill="currentColor">
-										<path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z" />
-									</svg>
-								</span>
-							) : null}
-						</div>
-					))}
-				</aside>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="lg:w-64 flex-shrink-0">
+            <div className="bg-white rounded-lg shadow-sm p-4 sticky top-6">
+              <h2 className="text-lg font-bold mb-4">Contenido del Curso</h2>
+              <nav className="space-y-2">
+                {lessons.map(lesson => (
+                  <Link
+                    key={lesson.id}
+                    to={`/course/${courseId}/lesson/${lesson.id}`}
+                    className={`block px-3 py-2 rounded-md transition-colors ${
+                      Number(lessonId) === lesson.id
+                        ? "bg-indigo-50 text-indigo-700 font-medium"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      {lesson.id < Number(lessonId) ? (
+                        <CheckCircle size={16} weight="fill" className="text-green-500 mr-2" />
+                      ) : (
+                        <div className="w-4 h-4 rounded-full border-2 border-gray-300 mr-2" />
+                      )}
+                      {lesson.title}
+                    </div>
+                    <div className="text-xs text-gray-500 ml-6">{lesson.desc}</div>
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </aside>
 
-				{/* Main Content */}
-				<main className="flex flex-col flex-1 max-w-[960px]">
-					{/* Breadcrumb */}
-					<div className="flex flex-wrap gap-2 p-4">
-						<Link
-							to="/my-learning"
-							className="text-[#6a7581] text-base font-medium"
-						>
-							My Courses
-						</Link>
-						<span className="text-[#6a7581] text-base font-medium">/</span>
-						<span className="text-[#6a7581] text-base font-medium">
-							Course {courseId}
-						</span>
-						<span className="text-[#6a7581] text-base font-medium">/</span>
-						<span className="text-[#121416] text-base font-medium">
-							{currentLesson.title}
-						</span>
-					</div>
+          {/* Main Content */}
+          <main className="flex-1">
+            {/* Breadcrumb */}
+            <nav className="flex mb-6" aria-label="Breadcrumb">
+              <ol className="flex items-center space-x-2 text-sm">
+                <li>
+                  <Link to="/my-courses" className="text-gray-600 hover:text-indigo-600">
+                    Mis Cursos
+                  </Link>
+                </li>
+                <li>
+                  <span className="text-gray-400 mx-1">/</span>
+                </li>
+                <li>
+                  <Link to={`/course/${courseId}`} className="text-gray-600 hover:text-indigo-600">
+                    Curso {courseId}
+                  </Link>
+                </li>
+                <li>
+                  <span className="text-gray-400 mx-1">/</span>
+                </li>
+                <li aria-current="page">
+                  <span className="text-indigo-600 font-medium">{currentLesson.title}</span>
+                </li>
+              </ol>
+            </nav>
 
-					{/* Título de la lección */}
-					<h2 className="text-[#121416] text-[28px] font-bold px-4 pb-3 pt-5">
-						{currentLesson.title}
-					</h2>
-
-					{/* Video o imagen */}
-					<div className="p-4">
-						<div
-							className="relative flex items-center justify-center bg-[#121416] bg-cover bg-center aspect-video rounded-xl p-4"
-							style={{
-								backgroundImage:
-									"url('https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80')",
-							}}
-						>
-							<button type="button" className="flex items-center justify-center rounded-full size-16 bg-black/40 text-white">
-								<svg
-									width="32"
-									height="32"
-									fill="currentColor"
-									viewBox="0 0 256 256"
-								>
-									<path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z" />
-								</svg>
-							</button>
-						</div>
-					</div>
-
-					{/* Resumen de la lección */}
-					<h3 className="text-[#121416] text-lg font-bold px-4 pb-2 pt-4">
-						Lesson Summary
-					</h3>
-					<p className="text-[#121416] text-base font-normal pb-3 pt-1 px-4">
-						This introductory lesson will guide you through the initial setup
-						and basic concepts of programming. You'll learn about the tools and
-						environments used by developers, and gain a foundational
-						understanding of how programs work. By the end of this lesson,
-						you'll be ready to write your first simple program.
-					</p>
-
-					{/* Conceptos clave */}
-					<h3 className="text-[#121416] text-lg font-bold px-4 pb-2 pt-4">
-						Key Concepts
-					</h3>
-					<div className="px-4">
-						{keyConcepts.map((concept, idx) => (
-							<label key={idx} className="flex gap-x-3 py-3 items-center">
-								<input
-									type="checkbox"
-									className="h-5 w-5 rounded border-[#dde0e3] border-2 bg-transparent text-[#528bc5] focus:ring-0"
-								/>
-								<span className="text-[#121416] text-base">{concept}</span>
-							</label>
-						))}
-					</div>
-				</main>
-			</div>
-		</div>
-	);
+            {/* Lesson Content */}
+            <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+              <div className="p-6">
+                <h1 className="text-2xl font-bold mb-4">{currentLesson.title}</h1>
+                
+                {/* Video Player */}
+                <div className="relative aspect-video bg-black rounded-lg mb-6 overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button className="bg-black/50 text-white rounded-full p-4 hover:bg-black/70 transition-colors">
+                      <Play size={32} weight="fill" />
+                    </button>
+                  </div>
+                  <img 
+                    src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80" 
+                    alt="Lesson thumbnail" 
+                    className="w-full h-full object-cover opacity-70"
+                  />
+                </div>
+                
+                {/* Lesson Summary */}
+                <div className="prose max-w-none mb-8">
+                  <h2 className="text-xl font-bold mb-3">Resumen de la lección</h2>
+                  <p>
+                    Esta lección introductoria te guiará a través de la configuración inicial 
+                    y los conceptos básicos de programación. Aprenderás sobre las herramientas 
+                    y entornos utilizados por los desarrolladores, y obtendrás una comprensión 
+                    fundamental de cómo funcionan los programas. Al final de esta lección, 
+                    estarás listo para escribir tu primer programa simple.
+                  </p>
+                </div>
+                
+                {/* Key Concepts */}
+                <div>
+                  <h2 className="text-xl font-bold mb-4 flex items-center">
+                    <ListChecks size={24} weight="bold" className="mr-2 text-indigo-600" />
+                    Conceptos Clave
+                  </h2>
+                  <ul className="space-y-3">
+                    {keyConcepts.map((concept, index) => (
+                      <li key={index} className="flex items-start">
+                        <CheckCircle size={20} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        <span>{concept}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              
+              {/* Navigation */}
+              <div className="border-t border-gray-200 px-6 py-4 flex justify-between">
+                <button className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50">
+                  Lección Anterior
+                </button>
+                <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                  Siguiente Lección
+                </button>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CourseLesson;

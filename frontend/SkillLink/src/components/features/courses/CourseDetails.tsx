@@ -1,185 +1,226 @@
-import   { useState } from "react";
-import { useParams } from "react-router-dom";
-
-const course = {
-  title: "Digital Marketing Fundamentals",
-  description:
-    "Este curso cubre los fundamentos del marketing digital: SEO, marketing de contenidos, redes sociales y email marketing. Aprende a crear campañas efectivas y analizar resultados.",
-  instructor: "Dra. Emily Carter",
-  duration: "8 semanas",
-  level: "Principiante",
-  enrollment: "1,250 estudiantes",
-  progress: 25,
-  modules: [
-    {
-      title: "Módulo 1",
-      desc: "Introducción al Marketing Digital",
-    },
-    {
-      title: "Módulo 2",
-      desc: "SEO (Optimización para Motores de Búsqueda)",
-    },
-    {
-      title: "Módulo 3",
-      desc: "Estrategias de Marketing de Contenidos",
-    },
-    {
-      title: "Módulo 4",
-      desc: "Marketing en Redes Sociales",
-    },
-    {
-      title: "Módulo 5",
-      desc: "Campañas de Email Marketing",
-    },
-  ],
-};
-
-const tabs = ["Overview", "Modules", "Resources"];
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { BookOpen, Clock, User, Star, CheckCircle, Play } from "@phosphor-icons/react";
 
 const CourseDetails = () => {
   const { id } = useParams();
-  const [activeTab, setActiveTab] = useState("Overview");
+  const [activeTab, setActiveTab] = useState("overview");
+  
+  const course = {
+    title: "Digital Marketing Fundamentals",
+    description: "Este curso cubre los fundamentos del marketing digital: SEO, marketing de contenidos, redes sociales y email marketing. Aprende a crear campañas efectivas y analizar resultados.",
+    instructor: "Dra. Emily Carter",
+    duration: "8 semanas",
+    level: "Principiante",
+    enrollment: "1,250 estudiantes",
+    rating: 4.8,
+    progress: 25,
+    modules: [
+      { title: "Módulo 1", desc: "Introducción al Marketing Digital" },
+      { title: "Módulo 2", desc: "SEO (Optimización para Motores de Búsqueda)" },
+      { title: "Módulo 3", desc: "Estrategias de Marketing de Contenidos" },
+      { title: "Módulo 4", desc: "Marketing en Redes Sociales" },
+      { title: "Módulo 5", desc: "Campañas de Email Marketing" },
+    ],
+    resources: [
+      { name: "Guía de SEO", type: "PDF" },
+      { name: "Plantilla de Plan de Marketing", type: "Documento" },
+      { name: "Lista de Herramientas Recomendadas", type: "Enlace" },
+    ]
+  };
 
   return (
-    <div className="flex min-h-screen bg-white">
-      {/* Sidebar */}
-      <aside className="w-80 min-h-[700px] flex flex-col justify-between bg-white p-4 border-r">
-        <div>
-          <div className="flex items-center gap-3 mb-8">
-            <div className="size-4">
-              {/* Logo */}
-              <svg viewBox="0 0 48 48" fill="none" className="w-6 h-6 text-[#111418]">
-                <circle cx="24" cy="24" r="20" fill="currentColor" />
-              </svg>
-            </div>
-            <h2 className="text-[#111418] text-lg font-bold">EduLearn</h2>
-          </div>
-          <nav className="flex flex-col gap-3">
-            <a href="#" className="text-[#111418] text-sm font-medium">
-              Home
-            </a>
-            <a href="#" className="text-[#111418] text-sm font-medium">
-              Courses
-            </a>
-            <a href="#" className="text-[#111418] text-sm font-medium font-bold bg-[#f0f2f5] rounded px-3 py-2">
-              My Learning
-            </a>
-            <a href="#" className="text-[#111418] text-sm font-medium">
-              Instructors
-            </a>
+    <div className="bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <nav className="flex mb-4" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2">
+              <li>
+                <Link to="/courses" className="text-indigo-200 hover:text-white">
+                  Cursos
+                </Link>
+              </li>
+              <li>
+                <span className="text-indigo-300 mx-2">/</span>
+              </li>
+              <li aria-current="page">
+                <span className="text-white font-medium">{course.title}</span>
+              </li>
+            </ol>
           </nav>
+          
+          <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
+          <p className="text-lg text-indigo-100 max-w-3xl">{course.description}</p>
         </div>
-      </aside>
+      </div>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col max-w-[960px] mx-auto">
-        {/* Breadcrumb */}
-        <div className="flex flex-wrap gap-2 p-4">
-          <a className="text-[#60758a] text-base font-medium" href="#">
-            Courses
-          </a>
-          <span className="text-[#60758a] text-base font-medium">/</span>
-          <span className="text-[#111418] text-base font-medium">{course.title}</span>
-        </div>
-
-        {/* Título y descripción */}
-        <div className="flex flex-wrap justify-between gap-3 p-4">
-          <div className="flex min-w-72 flex-col gap-3">
-            <p className="text-[#111418] text-[32px] font-bold leading-tight">{course.title}</p>
-            <p className="text-[#60758a] text-sm">{course.description}</p>
-          </div>
-        </div>
-
-        {/* Tabs */}
-        <div className="pb-3">
-          <div className="flex border-b border-[#dbe0e6] px-4 gap-8">
-            {tabs.map((tab) => (
-              <button
-                type="button"
-                key={tab}
-                className={`flex flex-col items-center justify-center border-b-[3px] pb-[13px] pt-4 ${
-                  activeTab === tab
-                    ? "border-b-[#111418] text-[#111418] font-bold"
-                    : "border-b-transparent text-[#60758a] font-bold"
-                }`}
-                onClick={() => setActiveTab(tab)}
-              >
-                <p className="text-sm leading-normal tracking-[0.015em]">{tab}</p>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Tab Content */}
-        {activeTab === "Overview" && (
-          <>
-            {/* Progreso */}
-            <div className="flex flex-col gap-3 p-4">
-              <div className="flex gap-6 justify-between">
-                <p className="text-[#111418] text-base font-medium">Progreso del curso</p>
-              </div>
-              <div className="rounded bg-[#dbe0e6]">
-                <div
-                  className="h-2 rounded bg-[#111418]"
-                  style={{ width: `${course.progress}%` }}
-                ></div>
-              </div>
-              <p className="text-[#60758a] text-sm">{course.progress}% completado</p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Course Content */}
+          <div className="flex-1">
+            {/* Tabs */}
+            <div className="border-b border-gray-200 mb-6">
+              <nav className="-mb-px flex space-x-8">
+                {[
+                  { id: "overview", name: "Descripción", icon: <BookOpen size={20} /> },
+                  { id: "modules", name: "Módulos", icon: <Play size={20} /> },
+                  { id: "resources", name: "Recursos", icon: <Star size={20} /> }
+                ].map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 ${
+                      activeTab === tab.id
+                        ? "border-indigo-500 text-indigo-600"
+                        : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                    }`}
+                  >
+                    {tab.icon}
+                    {tab.name}
+                  </button>
+                ))}
+              </nav>
             </div>
-            {/* Detalles */}
-            <h3 className="text-[#111418] text-lg font-bold px-4 pb-2 pt-4">Detalles del curso</h3>
-            <div className="p-4 grid grid-cols-[20%_1fr] gap-x-6">
-              <div className="col-span-2 grid grid-cols-subgrid border-t border-t-[#dbe0e6] py-5">
-                <p className="text-[#60758a] text-sm">Instructor</p>
-                <p className="text-[#111418] text-sm">{course.instructor}</p>
-              </div>
-              <div className="col-span-2 grid grid-cols-subgrid border-t border-t-[#dbe0e6] py-5">
-                <p className="text-[#60758a] text-sm">Duración</p>
-                <p className="text-[#111418] text-sm">{course.duration}</p>
-              </div>
-              <div className="col-span-2 grid grid-cols-subgrid border-t border-t-[#dbe0e6] py-5">
-                <p className="text-[#60758a] text-sm">Nivel</p>
-                <p className="text-[#111418] text-sm">{course.level}</p>
-              </div>
-              <div className="col-span-2 grid grid-cols-subgrid border-t border-t-[#dbe0e6] py-5">
-                <p className="text-[#60758a] text-sm">Inscritos</p>
-                <p className="text-[#111418] text-sm">{course.enrollment}</p>
-              </div>
-            </div>
-            <div className="flex px-4 py-3">
-              <button type="button" className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-[#0c7ff2] text-white text-sm font-bold">
-                <span className="truncate">Inscribirse</span>
-              </button>
-            </div>
-          </>
-        )}
 
-        {activeTab === "Modules" && (
-          <>
-            <h3 className="text-[#111418] text-lg font-bold px-4 pb-2 pt-4">Módulos</h3>
-            {course.modules.map((mod, idx) => (
-              <div className="flex items-center gap-4 bg-white px-4 min-h-[72px] py-2" key={mod.title}>
-                <div className="text-[#111418] flex items-center justify-center rounded-lg bg-[#f0f2f5] shrink-0 size-12">
-                  {/* Icono círculo */}
-                  <svg width="24" height="24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                  </svg>
+            {/* Tab Content */}
+            {activeTab === "overview" && (
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h2 className="text-xl font-bold mb-4">Sobre este curso</h2>
+                <p className="text-gray-700 mb-6">{course.description}</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-medium mb-3">Lo que aprenderás</h3>
+                    <ul className="space-y-2">
+                      {[
+                        "Fundamentos de SEO y marketing de contenidos",
+                        "Estrategias para redes sociales",
+                        "Creación de campañas de email efectivas",
+                        "Análisis de métricas clave"
+                      ].map((item, i) => (
+                        <li key={i} className="flex items-start">
+                          <CheckCircle size={20} className="text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <h3 className="font-medium mb-3">Detalles del curso</h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center">
+                        <Clock size={20} className="text-gray-500 mr-2" />
+                        <span>Duración: {course.duration}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <User size={20} className="text-gray-500 mr-2" />
+                        <span>Instructor: {course.instructor}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <Star size={20} className="text-gray-500 mr-2" />
+                        <span>Nivel: {course.level}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col justify-center">
-                  <p className="text-[#111418] text-base font-medium">{mod.title}</p>
-                  <p className="text-[#60758a] text-sm">{mod.desc}</p>
+
+                <button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-4 rounded-lg font-medium hover:from-indigo-700 hover:to-purple-700 transition-colors">
+                  Inscribirse en el curso
+                </button>
+              </div>
+            )}
+
+            {activeTab === "modules" && (
+              <div className="bg-white rounded-lg shadow-sm overflow-hidden">
+                <h2 className="sr-only">Módulos del curso</h2>
+                <ul className="divide-y divide-gray-200">
+                  {course.modules.map((module, index) => (
+                    <li key={index} className="p-6 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-start">
+                        <div className="flex items-center justify-center h-10 w-10 rounded-md bg-indigo-100 text-indigo-600 mr-4 mt-1">
+                          {index + 1}
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-medium">{module.title}</h3>
+                          <p className="text-gray-600 mt-1">{module.desc}</p>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {activeTab === "resources" && (
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h2 className="text-xl font-bold mb-4">Recursos del curso</h2>
+                <div className="space-y-4">
+                  {course.resources.map((resource, index) => (
+                    <div key={index} className="flex items-center p-3 border border-gray-200 rounded-lg hover:border-indigo-300 transition-colors">
+                      <div className="flex items-center justify-center h-10 w-10 rounded-md bg-gray-100 text-gray-600 mr-4">
+                        {resource.type}
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-medium">{resource.name}</h3>
+                        <p className="text-gray-500 text-sm">{resource.type}</p>
+                      </div>
+                      <button className="text-indigo-600 hover:text-indigo-800">
+                        Descargar
+                      </button>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
-          </>
-        )}
-
-        {activeTab === "Resources" && (
-          <div className="p-4">
-            <p className="text-[#60758a]">Aquí puedes agregar recursos, archivos o enlaces útiles del curso.</p>
+            )}
           </div>
-        )}
-      </main>
+
+          {/* Sidebar */}
+          <div className="lg:w-80 flex-shrink-0">
+            <div className="bg-white rounded-lg shadow-sm p-6 sticky top-8">
+              <div className="aspect-w-16 aspect-h-9 mb-4">
+                <img 
+                  src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                  alt="Course thumbnail" 
+                  className="rounded-lg w-full"
+                />
+              </div>
+              
+              <div className="space-y-4">
+                <div>
+                  <span className="text-sm text-gray-500">Instructor</span>
+                  <p className="font-medium">{course.instructor}</p>
+                </div>
+                
+                <div>
+                  <span className="text-sm text-gray-500">Duración</span>
+                  <p className="font-medium">{course.duration}</p>
+                </div>
+                
+                <div>
+                  <span className="text-sm text-gray-500">Nivel</span>
+                  <p className="font-medium">{course.level}</p>
+                </div>
+                
+                <div>
+                  <span className="text-sm text-gray-500">Estudiantes</span>
+                  <p className="font-medium">{course.enrollment}</p>
+                </div>
+                
+                <div>
+                  <span className="text-sm text-gray-500">Valoración</span>
+                  <div className="flex items-center">
+                    <Star size={16} weight="fill" className="text-yellow-400 mr-1" />
+                    <span>{course.rating}/5.0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

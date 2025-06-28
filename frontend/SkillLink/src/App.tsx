@@ -11,6 +11,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ForgotPassword from "./components/features/auth/ForgotPassword";
 
+// ✅ IMPORTA TUS FEATURES NUEVAS
+import DesafioList from "./components/features/desafios/DesafioList";
+import ProjectList from "./components/features/proyectos/ProjectList";
+import MyProfile from "./components/features/profile/MyProfile";
+
 function App() {
   return (
     <>
@@ -19,18 +24,23 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/create-account" element={<CreateAcount />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} /> 
-          {/* Rutas protegidas - solo accesibles con autenticación */}
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+
+          {/* Rutas protegidas */}
           <Route element={<ProtectedRoute />}>
             <Route path="/my-learning" element={<MyLearning />} />
             <Route path="/courses/:id" element={<CourseDetails />} />
             <Route path="/course" element={<CourseLesson />} />
             <Route path="/courses-page" element={<CoursesPage />} />
+
+            {/* ✅ NUEVAS RUTAS */}
+            <Route path="/desafios" element={<DesafioList />} />
+            <Route path="/proyectos" element={<ProjectList />} />
+            <Route path="/mi-perfil" element={<MyProfile />} />
           </Route>
         </Route>
       </Routes>
 
-      {/* Configuración de notificaciones */}
       <Toaster
         position="top-center"
         toastOptions={{

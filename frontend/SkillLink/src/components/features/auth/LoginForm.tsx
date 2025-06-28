@@ -1,8 +1,8 @@
-
-import { type FormEvent, useId, useState } from "react";
+import { useState, useId, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../context/user/AuthContext";
 import Input from "../../ui/Input";
+import { loginUser } from "../../../api/auth";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -17,19 +17,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8081/api/ingresar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, contrasena }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Credenciales incorrectas");
-      }
-
-      const data = await response.json();
+      const data = await loginUser({ email, contrasena });
       login(data.token);
       navigate("/courses-page");
     } catch (err: any) {
