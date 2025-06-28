@@ -46,7 +46,7 @@ Para ejecutar y editar el proyecto fácilmente </br>
 
 **Node.js**</br>
 Entorno de ejecución utilizado tanto en el frontend como en un microservicio del backend. Es requerido para ejecutar scripts, administrar paquetes y manejar tareas de desarrollo modernas. Requiere versión 16 o superior. </br>
-Descargar Node.js
+[Descargar Node.js](https://nodejs.org/es)
 
 ### Instalación
 
