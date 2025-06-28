@@ -1,4 +1,15 @@
 # SkillLink
+![Java](https://img.shields.io/badge/Java-17%2B-blue?logo=java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-Backend-success?logo=spring&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-blue?logo=mysql&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-Project_Builder-orange?logo=apachemaven)
+![Node.js](https://img.shields.io/badge/Node.js-16%2B-green?logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-Microservice-black?logo=express&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-Message_Broker-ff6600?logo=rabbitmq&logoColor=white)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.x-blue?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?logo=vite&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Version_Control-f05033?logo=git&logoColor=white)
 
 ## Guía de Instalación y Uso
 
@@ -26,6 +37,10 @@ Para clonar y sincronizar el repositorio </br>
 **IDE recomendada: IntelliJ IDEA (o VS Code con soporte para Java)** </br>
 Para ejecutar y editar el proyecto fácilmente </br>
 [Descargar IntelliJ IDEA Community Edition (gratuita)](https://www.jetbrains.com/idea/download/?section=windows)
+
+**Node.js **</br>
+Entorno de ejecución utilizado tanto en el frontend como en un microservicio del backend. Es requerido para ejecutar scripts, administrar paquetes y manejar tareas de desarrollo modernas. Requiere versión 16 o superior. </br>
+Descargar Node.js
 
 ### Instalación
 
