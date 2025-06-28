@@ -1,0 +1,1543 @@
+{
+	"info": {
+		"_postman_id": "2d4716a1-8793-4620-81c5-6fc63caab266",
+		"name": "SkillLink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34418810",
+		"_collection_link": "https://gold-rocket-379338.postman.co/workspace/My-Workspace~818a87dd-b80c-4aa6-8512-c4c62061ebf6/collection/34418810-2d4716a1-8793-4620-81c5-6fc63caab266?action=share&source=collection_link&creator=34418810"
+	},
+	"item": [
+		{
+			"name": "Desafios",
+			"item": [
+				{
+					"name": "getAllDesafios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/desafios",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"desafios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getDesafiosByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/desafios/2",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"desafios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateDesafio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_usuario\": 1,\r\n  \"titulo\": \"Desafío de Front\",\r\n  \"descripcion\": \"Crear Vistas\",\r\n  \"dificultad\": \"Intermedio\",\r\n  \"fecha_limite\": \"2025-07-01T23:59:00\",\r\n  \"estado\": \"pendiente\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/desafios/2",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"desafios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteDesafio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/desafios/2",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"desafios",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addDesafio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_usuario\": 1,\r\n  \"titulo\": \"Conseguir novia\",\r\n  \"descripcion\": \"Socializa\",\r\n  \"dificultad\": \"Muy Dificil\",\r\n  \"fecha_limite\": \"2025-07-01T23:59:00\",\r\n  \"estado\": \"pendiente\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/desafios",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"desafios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Proyecto",
+			"item": [
+				{
+					"name": "getProyecto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyectos",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProyectoByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyectos/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyectos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProyecto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_usuario\": 1,\r\n  \"titulo\": \"Proyecto Inteligencia Artificial\",\r\n  \"descripcion\": \"Sistema de chat con IA\",\r\n  \"estado\": \"en progreso\",\r\n  \"fecha_inicio\": \"2025-06-20T12:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/proyectos/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyectos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProyecto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyectos/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyectos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addProyecto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_usuario\": 1,\r\n  \"titulo\": \"Proyecto Inteligencia Artificial\",\r\n  \"descripcion\": \"Sistema de predicción con IA\",\r\n  \"estado\": \"en progreso\",\r\n  \"fecha_inicio\": \"2025-06-20T12:00:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/proyectos",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyectos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProyectoConTecnologia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyectos/2/tecnologias",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyectos",
+								"2",
+								"tecnologias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tecnologia",
+			"item": [
+				{
+					"name": "getTecnologia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/tecnologias",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"tecnologias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTecnologiaByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/tecnologias/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"tecnologias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateTecnologia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"React\",\r\n  \"tipo\": \"Framework\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/tecnologias/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"tecnologias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTecnologia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/tecnologias/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"tecnologias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addTecnologia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Spring Boot\",\r\n  \"tipo\": \"Framework\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/tecnologias",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"tecnologias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ProyectoTecnologia",
+			"item": [
+				{
+					"name": "getPrTc",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyecto-tecnologias",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyecto-tecnologias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPrTcByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyecto-tecnologias/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyecto-tecnologias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatePrTc",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_proyecto\": 2,\r\n  \"id_tecnologia\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/proyecto-tecnologias/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyecto-tecnologias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletePrTc",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/proyecto-tecnologias/1",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyecto-tecnologias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPrTc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_proyecto\": 2,\r\n  \"id_tecnologia\": 2\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/proyecto-tecnologias",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"proyecto-tecnologias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evento",
+			"item": [
+				{
+					"name": "getAllEventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}evento",
+							"host": [
+								"{{url}}evento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEventosByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_9\",\r\n    \"descripcion\": \"descripcion_9\",\r\n    \"ubicacion\": \"ubicacion_9\",\r\n    \"fechaEvento\": \"2025-07-20T00:00:00\",\r\n    \"organizador\": \"organizador_9\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}evento/1",
+							"host": [
+								"{{url}}evento"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addEvento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_9\",\r\n    \"descripcion\": \"descripcion_9\",\r\n    \"ubicacion\": \"ubicacion_9\",\r\n    \"fechaEvento\": \"2025-07-20T00:00:00\",\r\n    \"organizador\": \"organizador_9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}evento",
+							"host": [
+								"{{url}}evento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateEvento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_1_actualizado\",\r\n    \"descripcion\": \"descripcion_1\",\r\n    \"ubicacion\": \"ubicacion_1\",\r\n    \"fechaEvento\": \"2025-07-15T00:00:00\",\r\n    \"organizador\": \"organizador_1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}evento/1",
+							"host": [
+								"{{url}}evento"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEvento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_1_actualizado\",\r\n    \"descripcion\": \"descripcion_1\",\r\n    \"ubicacion\": \"ubicacion_1\",\r\n    \"fechaEvento\": \"2025-07-15T00:00:00\",\r\n    \"organizador\": \"organizador_1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}evento/10",
+							"host": [
+								"{{url}}evento"
+							],
+							"path": [
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEventosByHabilidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}evento/buscar?habilidad=descripcion_2",
+							"host": [
+								"{{url}}evento"
+							],
+							"path": [
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "habilidad",
+									"value": "descripcion_2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RegistroEvento",
+			"item": [
+				{
+					"name": "getAllRegistroEventos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}registro-evento",
+							"host": [
+								"{{url}}registro-evento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRegistroEventosByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}registro-evento/1",
+							"host": [
+								"{{url}}registro-evento"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addRegistroEvento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idUsuario\": 3,\r\n  \"idEvento\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}registro-evento",
+							"host": [
+								"{{url}}registro-evento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRegistroEvento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}registro-evento/100",
+							"host": [
+								"{{url}}registro-evento"
+							],
+							"path": [
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRegistroEvento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}registro-evento/100",
+							"host": [
+								"{{url}}registro-evento"
+							],
+							"path": [
+								"100"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Mentoria",
+			"item": [
+				{
+					"name": "getAllMentorias",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_2\",\r\n    \"descripcion\": \"descripcion_2\",\r\n    \"ubicacion\": \"ubicacion_2\",\r\n    \"fechaEvento\": \"2025-06-20T00:00:00\",\r\n    \"organizador\": \"organizador_2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/mentoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"mentoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMentoriasByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}mentoria/1",
+							"host": [
+								"{{url}}mentoria"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addMentoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_2\",\r\n    \"descripcion\": \"descripcion_2\",\r\n    \"ubicacion\": \"ubicacion_2\",\r\n    \"fechaEvento\": \"2025-06-20T00:00:00\",\r\n    \"organizador\": \"organizador_2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/mentoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"mentoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMentoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\": 1,\r\n    \"titulo\": \"mentoria_1_actualizada\",\r\n    \"descripcion\": \"descripcion_1\",\r\n    \"fechaPublicacion\": \"2025-07-20T00:00:00\",\r\n    \"estado\": \"estado_1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}mentoria/1",
+							"host": [
+								"{{url}}mentoria"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMentoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\": 1,\r\n    \"titulo\": \"mentoria_1_actualizada\",\r\n    \"descripcion\": \"descripcion_1\",\r\n    \"fechaPublicacion\": \"2025-07-20T00:00:00\",\r\n    \"estado\": \"estado_1\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}mentoria/2",
+							"host": [
+								"{{url}}mentoria"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMentoriasByHabilidad",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}mentoria/buscar?habilidad=descripcion_1",
+							"host": [
+								"{{url}}mentoria"
+							],
+							"path": [
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "habilidad",
+									"value": "descripcion_1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categoria",
+			"item": [
+				{
+					"name": "getAllCategorias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}categoria/obtener",
+							"host": [
+								"{{url}}categoria"
+							],
+							"path": [
+								"obtener"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategoriasByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}categoria/1",
+							"host": [
+								"{{url}}categoria"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addCategoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_2\",\r\n    \"descripcion\": \"descripcion_2\",\r\n    \"ubicacion\": \"ubicacion_2\",\r\n    \"fechaEvento\": \"2025-06-20T00:00:00\",\r\n    \"organizador\": \"organizador_2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"nombre_2_actualizada\",\r\n    \"descripcion\": \"descripcion_2_actualizada\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}categoria/2",
+							"host": [
+								"{{url}}categoria"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}categoria/3",
+							"host": [
+								"{{url}}categoria"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MentoriaCategoria",
+			"item": [
+				{
+					"name": "getAllMentoriaCategorias",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_2\",\r\n    \"descripcion\": \"descripcion_2\",\r\n    \"ubicacion\": \"ubicacion_2\",\r\n    \"fechaEvento\": \"2025-06-20T00:00:00\",\r\n    \"organizador\": \"organizador_2\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}mentoria-categoria",
+							"host": [
+								"{{url}}mentoria-categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMentoriaCategoriasByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_2\",\r\n    \"descripcion\": \"descripcion_2\",\r\n    \"ubicacion\": \"ubicacion_2\",\r\n    \"fechaEvento\": \"2025-06-20T00:00:00\",\r\n    \"organizador\": \"organizador_2\"\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}mentoria-categoria/1",
+							"host": [
+								"{{url}}mentoria-categoria"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addMentoriaCategoria",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"evento_2\",\r\n    \"descripcion\": \"descripcion_2\",\r\n    \"ubicacion\": \"ubicacion_2\",\r\n    \"fechaEvento\": \"2025-06-20T00:00:00\",\r\n    \"organizador\": \"organizador_2\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8081/mentoria-categoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"mentoria-categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMentoriaCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idMentoria\": 1,\r\n    \"idCategoria\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}mentoria-categoria/2",
+							"host": [
+								"{{url}}mentoria-categoria"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMentoriaCategoria",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idMentoria\": 1,\r\n    \"idCategoria\": 1\r\n}"
+						},
+						"url": {
+							"raw": "{{url}}mentoria-categoria/2",
+							"host": [
+								"{{url}}mentoria-categoria"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "registUser",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Andrea Martínez\",\r\n  \"email\": \"andrea.mtz@example.com\",\r\n  \"contrasena\": \"andreadev2025\",\r\n  \"rol\": \"DOCENTE\",\r\n  \"nickname\": \"andymtz\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/registro",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"registro"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"andrea.mtz@example.com\",\r\n  \"contrasena\": \"andreadev2025\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/ingresar",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"ingresar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYXJpbmEubG9sYUBleGFtcGxlLmNvbSIsImlzcyI6IlNraWxsTGluayIsImlkIjoxNywiZXhwIjoxNzUwOTg3MDMyfQ.Uo6odsp8LtoEbaeHzzKYowMp6UpRGQ-gFOaWWBBqmRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/usuario/eliminar-cuenta",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"usuario",
+								"eliminar-cuenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/usuario/cuenta",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"usuario",
+								"cuenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getRoles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/usuario/roles",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"usuario",
+								"roles"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Perfil",
+			"item": [
+				{
+					"name": "createProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyZWEubXR6QGV4YW1wbGUuY29tIiwiaXNzIjoiU2tpbGxMaW5rIiwiaWQiOjIxLCJleHAiOjE3NTEwMDY1ODN9.FivuxXR_amEn_VHoqgODnIpJoBycpfAp0PCcGSMURRU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"descripcion\": \"Docente especializada en tecnologías de la información, enfocada en formación backend.\",\r\n  \"experiencia\": \"3 años enseñando fundamentos de programación y estructuras de datos con Java.\",\r\n  \"ubicacion\": \"Monterrey, México\",\r\n  \"redesSociales\": \"https://linkedin.com/in/andymtz\",\r\n  \"habilidades\": [\r\n    {\r\n      \"idHabildad\": 1,\r\n      \"nivel\": \"INTERMEDIO\",\r\n      \"anosDeExperiencia\": 3\r\n    },\r\n    {\r\n      \"idHabildad\": 2,\r\n      \"nivel\": \"INTERMEDIO\",\r\n      \"anosDeExperiencia\": 2\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/perfil/crear",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"perfil",
+								"crear"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProfileInfo",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VsLm5hdmFycm9AZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6MywiZXhwIjoxNzUwODQ2OTg1fQ.t6YOrsfZAOqe9tO0hDNnaTyhgVnLyBtoglqfefOaLC8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/perfil/mi-cuenta",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"perfil",
+								"mi-cuenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2VsLm5hdmFycm9AZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6MywiZXhwIjoxNzUwODQ2OTg1fQ.t6YOrsfZAOqe9tO0hDNnaTyhgVnLyBtoglqfefOaLC8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descripcion\": \"Hola mundo :D\",\r\n    \"experiencia\": null,\r\n    \"ubicacion\": null,\r\n    \"redesSociales\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/perfil/actualizar",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"perfil",
+								"actualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewOthersProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/perfil/2",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"perfil",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PerfilHabilidad",
+			"item": [
+				{
+					"name": "addSkill",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n\t{\r\n      \"idHabildad\": 2,\r\n      \"nivel\": \"Intermedio\",\r\n      \"anosDeExperiencia\": 3\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/habilidad/agregar",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"habilidad",
+								"agregar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteSkill",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/habilidad/borrar/2",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"habilidad",
+								"borrar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSkill",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idHabilidad\": 2,\r\n  \"nivel\": \"Básico\",\r\n  \"anosDeExperiencia\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/habilidad/actualizar",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"habilidad",
+								"actualizar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getNiveles",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Habilidad",
+			"item": [
+				{
+					"name": "getAllSkills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/habilidades/consultar",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"habilidades",
+								"consultar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addSkills",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Git\",\r\n  \"categoria\": \"Control de Versiones\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/habilidades/agregar",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"habilidades",
+								"agregar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Recomendacion",
+			"item": [
+				{
+					"name": "getRecomendacionSocial",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsdWlzLm1lbmRvemFAZXhhbXBsZS5jb20iLCJpc3MiOiJTa2lsbExpbmsiLCJpZCI6NCwiZXhwIjoxNzUwODUyNzA3fQ.XEHPVfF2uNRG_y8K7HI4GAd9Y0wSebB-zCIyi55wHsc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}api/recomendacion-social",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"recomendacion-social"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8081/",
+			"type": "default"
+		}
+	]
+}
