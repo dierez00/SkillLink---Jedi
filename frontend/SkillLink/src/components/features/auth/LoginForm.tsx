@@ -18,7 +18,8 @@ const LoginForm = () => {
 
     try {
       const data = await loginUser({ email, contrasena });
-      login(data.token);
+      console.log("Login successful:", data);
+      login(data.JWTToken);
       navigate("/courses-page");
     } catch (err: any) {
       setError(err.message || "Ocurrió un error");

@@ -43,6 +43,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/usuario/roles").permitAll()
                         .requestMatchers(HttpMethod.GET, "/categoria/obtener").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/habilidad/niveles").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/recuperar").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/recuperar/reset").permitAll()
 
                         .anyRequest().authenticated()
                 )
@@ -72,4 +74,4 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+}

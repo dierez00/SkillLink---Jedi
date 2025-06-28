@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Recuperar contraseña - SkillLink</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #FFFAFA;
+        margin: 0;
+        padding: 0;
+        color: #010101;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid #A1B0C0;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      }
+      .header {
+        background-color: #F59757;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 24px 16px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+      .content {
+        padding: 24px 32px;
+      }
+      .content h2 {
+        color: #010101;
+        font-size: 20px;
+        margin-top: 0;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background-color: #32A7E5;
+        color: #FFFFFF;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+      .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #A1B0C0;
+        padding: 16px;
+        background-color: #F5F5F5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>¿Olvidaste tu contraseña?</h1>
+      </div>
+      <div class="content">
+        <h2>No te preocupes, te ayudamos a recuperarla</h2>
+        <p>
+          Hemos recibido una solicitud para restablecer tu contraseña en <strong>SkillLink</strong>.
+        </p>
+        <p>
+          Haz clic en el botón de abajo para crear una nueva contraseña. Este enlace será válido por un tiempo limitado.
+        </p>
+        <a href="{{link}}" class="btn">Restablecer contraseña</a>
+        <p style="margin-top: 20px; font-size: 14px;">
+          Si no solicitaste este cambio, puedes ignorar este correo.
+        </p>
+      </div>
+      <div class="footer">
+        © {{year}} SkillLink. Todos los derechos reservados.
+      </div>
+    </div>
+  </body>
+</html>

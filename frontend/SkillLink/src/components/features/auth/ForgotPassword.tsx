@@ -7,11 +7,13 @@ const ForgotPassword = () => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  const api_url = import.meta.env.VITE_API_URL;
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:8081/api/forgot-password", {
+      const response = await fetch(`${api_url}/api/recuperar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

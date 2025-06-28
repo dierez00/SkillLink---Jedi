@@ -10,8 +10,7 @@ import CreateAcount from "./pages/CreateAcount";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import ForgotPassword from "./components/features/auth/ForgotPassword";
-
-// ✅ IMPORTA TUS FEATURES NUEVAS
+import ResetPassword from "./components/features/auth/ResetPassword";
 import DesafioList from "./components/features/desafios/DesafioList";
 import ProjectList from "./components/features/proyectos/ProjectList";
 import MyProfile from "./components/features/profile/MyProfile";
@@ -25,6 +24,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/create-account" element={<CreateAcount />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+
+          {/* Rutas públicas */}
 
           {/* Rutas protegidas */}
           <Route element={<ProtectedRoute />}>
@@ -33,7 +35,7 @@ function App() {
             <Route path="/course" element={<CourseLesson />} />
             <Route path="/courses-page" element={<CoursesPage />} />
 
-            {/* ✅ NUEVAS RUTAS */}
+            {/* NUEVAS RUTAS */}
             <Route path="/desafios" element={<DesafioList />} />
             <Route path="/proyectos" element={<ProjectList />} />
             <Route path="/mi-perfil" element={<MyProfile />} />

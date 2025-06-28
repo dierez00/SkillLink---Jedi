@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bienvenido a SkillLink</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #FFFAFA;
+        margin: 0;
+        padding: 0;
+        color: #010101;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid #A1B0C0;
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      }
+      .header {
+        background-color: #32A7E5;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 24px 16px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .content {
+        padding: 24px 32px;
+      }
+      .content h2 {
+        color: #010101;
+        font-size: 22px;
+        margin-top: 0;
+      }
+      .btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        background-color: #5ED97B;
+        color: #FFFFFF;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+      }
+      .footer {
+        text-align: center;
+        font-size: 12px;
+        color: #A1B0C0;
+        padding: 16px;
+        background-color: #F5F5F5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>¡Bienvenido a SkillLink, {{name}}!</h1>
+      </div>
+      <div class="content">
+        <h2>Tu comunidad de crecimiento profesional</h2>
+        <p>
+          Gracias por unirte a <strong>SkillLink</strong>, la plataforma donde puedes compartir tus conocimientos,
+          participar en desafíos, colaborar en proyectos y conectar con personas que impulsarán tu carrera.
+        </p>
+        <p>
+          Comienza explorando mentorías, eventos y nuevas oportunidades dentro de la comunidad.
+        </p>
+        <a href="https://skilllink.com" class="btn">Ir a la plataforma</a>
+      </div>
+      <div class="footer">
+        © {{year}} SkillLink. Todos los derechos reservados.
+      </div>
+    </div>
+  </body>
+</html>
