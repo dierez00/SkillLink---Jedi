@@ -38,7 +38,7 @@ Para clonar y sincronizar el repositorio </br>
 Para ejecutar y editar el proyecto fácilmente </br>
 [Descargar IntelliJ IDEA Community Edition (gratuita)](https://www.jetbrains.com/idea/download/?section=windows)
 
-**Node.js **</br>
+**Node.js**</br>
 Entorno de ejecución utilizado tanto en el frontend como en un microservicio del backend. Es requerido para ejecutar scripts, administrar paquetes y manejar tareas de desarrollo modernas. Requiere versión 16 o superior. </br>
 Descargar Node.js
 
