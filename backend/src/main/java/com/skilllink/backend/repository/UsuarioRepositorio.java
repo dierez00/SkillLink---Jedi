@@ -16,8 +16,8 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
     @Query(
             value = "WITH HabilidadesUsuarioBase AS ( " +
                     "    SELECT ph.id_habilidad " +
-                    "    FROM perfil_habilidad ph " +
-                    "    JOIN perfil p ON ph.id_perfil = p.id_perfil " +
+                    "    FROM Perfil_Habilidad ph " +
+                    "    JOIN Perfil p ON ph.id_perfil = p.id_perfil " +
                     "    WHERE p.id_usuario = :idUsuario " +
                     "), " +
                     "ConteoIntereses AS ( " +
@@ -25,9 +25,9 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
                     "        u.id_usuario, " +
                     "        u.nombre, " +
                     "        COUNT(ph.id_habilidad) AS intereses_comunes " +
-                    "    FROM usuario u " +
-                    "    JOIN perfil p ON u.id_usuario = p.id_usuario " +
-                    "    JOIN perfil_habilidad ph ON p.id_perfil = ph.id_perfil " +
+                    "    FROM Usuario u " +
+                    "    JOIN Perfil p ON u.id_usuario = p.id_usuario " +
+                    "    JOIN Perfil_Habilidad ph ON p.id_perfil = ph.id_perfil " +
                     "    WHERE ph.id_habilidad IN (SELECT id_habilidad FROM HabilidadesUsuarioBase) " +
                     "      AND u.id_usuario != :idUsuario " +
                     "    GROUP BY u.id_usuario, u.nombre " +
@@ -47,11 +47,11 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, Long> {
             //Query para obtener número de usuarios con skills similares. Necesario para la paginación .
             countQuery = "SELECT COUNT(DISTINCT u.id_usuario) " +
                     "FROM usuario u " +
-                    "JOIN perfil p ON u.id_usuario = p.id_usuario " +
-                    "JOIN perfil_habilidad ph ON p.id_perfil = ph.id_perfil " +
+                    "JOIN Perfil p ON u.id_usuario = p.id_usuario " +
+                    "JOIN Perfil_Habilidad ph ON p.id_perfil = ph.id_perfil " +
                     "WHERE ph.id_habilidad IN (" +
                     "    SELECT ph_sub.id_habilidad " +
-                    "    FROM perfil_habilidad ph_sub JOIN perfil p_sub ON ph_sub.id_perfil = p_sub.id_perfil " +
+                    "    FROM Perfil_Habilidad ph_sub JOIN perfil p_sub ON ph_sub.id_perfil = p_sub.id_perfil " +
                     "    WHERE p_sub.id_usuario = :idUsuario" +
                     ") AND u.id_usuario != :idUsuario",
             nativeQuery = true

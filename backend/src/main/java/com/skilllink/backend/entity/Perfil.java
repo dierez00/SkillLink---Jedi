@@ -6,9 +6,10 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Builder
 @Getter
 @Setter
-@Table (name = "perfil")
+@Table (name = "Perfil")
 @Entity (name = "Perfil")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +20,6 @@ public class Perfil {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id_perfil")
     private Long idPerfil;
-    @Column(name = "bio")
     private String descripcion;
     private String experiencia;
     private String ubicacion;

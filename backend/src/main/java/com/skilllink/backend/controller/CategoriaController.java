@@ -34,7 +34,7 @@ public class CategoriaController {
         return ResponseEntity.created(url).body(datosRespuestaCategoria);
     }
 
-    @GetMapping
+    @GetMapping("/obtener")
     public ResponseEntity<Page<DatosSalidaCategoria>> listadoCategorias(Pageable paginacion) {
         return ResponseEntity.ok(categoriaRepository.findAll(paginacion).map(DatosSalidaCategoria::new));
     }

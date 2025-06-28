@@ -14,7 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "habilidad")
+@Table(name = "Habilidad")
 @Entity(name = "Habilidad")
 public class Habilidad {
 

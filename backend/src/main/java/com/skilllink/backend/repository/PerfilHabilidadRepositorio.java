@@ -17,7 +17,7 @@ public interface PerfilHabilidadRepositorio extends JpaRepository<PerfilHabilida
 
 
     @Query(
-            value = "SELECT id_habilidad FROM perfil_habilidad WHERE id_perfil = :idPerfil",
+            value = "SELECT id_habilidad FROM Perfil_Habilidad WHERE id_perfil = :idPerfil",
             nativeQuery = true
     )
     List<Long> findIdHabilidadByPerfilId(@Param("idPerfil") Long perfilId);

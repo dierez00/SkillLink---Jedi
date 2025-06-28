@@ -1,5 +1,6 @@
 package com.skilllink.backend.entity;
 
+import com.skilllink.backend.enums.NivelHabilidad;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,7 +8,7 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "perfil_habilidad")
+@Table(name = "Perfil_Habilidad")
 @Entity(name = "PerfilHabilidad")
 @EqualsAndHashCode (of = "idPerfilHabilidad")
 public class PerfilHabilidad {
@@ -17,8 +18,9 @@ public class PerfilHabilidad {
     @Column (name = "id_perfil_habilidad")
     private Long idPerfilHabilidad;
 
-    private String nivel;
-    @Column (name = "años_experiencia")
+    @Enumerated(EnumType.STRING)
+    private NivelHabilidad nivel;
+    @Column (name = "aos_experiencia")
     private int anosExperiencia;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -28,4 +30,5 @@ public class PerfilHabilidad {
     @ManyToOne
     @JoinColumn(name = "id_habilidad")
     private Habilidad habilidad;
+
 }
